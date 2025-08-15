@@ -1,150 +1,283 @@
-/* General Body Styling */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: url('../images/fall_colors_wallpaper.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
-}
+:root{
+    /* Light theme */
+    --bg: #f6f7fb;        /* soft gray-blue */
+    --bg-2: #eff1f6;      /* alt section */
+    --card: #ffffff;
+    --text: #1f2937;
+    --muted:#6b7280;
+    --accent:#0ea5e9;     /* sky blue */
+    --accent-2:#7c3aed;   /* purple for chips/gradients */
+    --ring: rgba(14,165,233,.25);
+  }
+  
+  /* Optional: dark theme variables (hooked to [data-theme="dark"]) */
+  :root[data-theme="dark"]{
+    --bg:#0f172a;
+    --bg-2:#111827;
+    --card:#0b1220;
+    --text:#e5e7eb;
+    --muted:#9ca3af;
+    --accent:#38bdf8;
+    --accent-2:#a78bfa;
+    --ring: rgba(56,189,248,.3);
+  }
+  
 
-/* Navigation */
-header nav ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 10px 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Transparent black for nav */
-}
 
-header nav ul li {
-    margin: 0 15px;
-}
-
-header nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.1rem;
-}
-
-header nav ul li a:hover {
-    text-decoration: underline;
-}
-
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-nav {
-    background: rgba(0, 0, 0, 0.6); /* Slightly transparent black */
-    padding: 10px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-/* Intro Section Styling */
-.intro {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    height: calc(100vh - 60px); /* Full viewport height minus header */
-    padding: 50px;
-    position: relative;
-    z-index: 1;
-}
-
-/* Profile Picture Styling */
-.profile-pic {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    border: 5px solid #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Add depth */
-    position: absolute;
-    top: 20%;
-    left: 5%;
-}
-
-/* About Me Text Styling */
-.about-me-text {
-    max-width: 600px;
-    margin-left: auto;
-    padding: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Make text readable on background */
-}
-
-.about-me-text h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: #fff;
-}
-
-.about-me-text p {
-    font-size: 1.5rem;
-    line-height: 1.8;
-    color: #ddd;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent footer */
-    color: white;
-    padding: 15px 0;
-    font-size: 0.9em;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .intro {
-        flex-direction: column; /* Stack image and text vertically */
-        text-align: center;
-    }
-
-    .profile-pic {
-        width: 200px;
-        height: 200px;
-        top: 10%;
-        left: 50%;
-        transform: translateX(-50%); /* Center align for smaller screens */
-    }
-
-    .about-me-text {
-        max-width: 90%;
-        font-size: 1.2rem;
-        margin: 20px auto;
-        text-align: center;
-    }
-}
-
-/* Additional Section Styling for Other Pages */
-section {
-    padding: 20px;
-    color: #fff; /* Text inside sections stays light */
-}
-
-h2 {
-    text-align: center;
-    color: #FFD700; /* Highlighted color for section headings */
-}
-
-/* Publications and Projects Styling */
-.publications, .projects {
-    padding: 50px 20px;
-    max-width: 900px;
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: clamp(.9rem, 1.2vw, 1.2rem);
+  }
+  /* Use on sections that should stretch even more */
+.section.wide{
+    width: min(1600px, 98vw);
+  }
+  
+  /* True full-bleed content band (edge-to-edge) with an inner row for padding) */
+  .band{ width: 100%; }
+  .band > .inner{
+    width: min(1600px, 98vw);
     margin: 0 auto;
-    color: #fff;
-    line-height: 1.8;
-}
+    padding: clamp(2rem, 3.5vw, 3rem) clamp(1rem, 3vw, 2rem);
+  }
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, Helvetica, sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(1200px 600px at 80% -10%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 60%),
+      radial-gradient(800px 400px at -10% 20%, color-mix(in srgb, var(--accent-2) 10%, transparent), transparent 60%),
+      var(--bg);
+    line-height:1.6;
+  }
+  
+  /* Subtle noise/texture over everything (warmth) */
+  body::after{
+    content:"";
+    position:fixed; inset:0; pointer-events:none; z-index:-1;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'>    <filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0.1'/><feComponentTransfer><feFuncA type='table' tableValues='0 0 0 0 .05'/></feComponentTransfer></filter>    <rect width='120' height='120' filter='url(%23n)'/> </svg>");
+    opacity:.45;
+  }
+  
+  .site-header{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter:saturate(140%) blur(8px);
+    background: color-mix(in srgb, var(--bg) 70%, transparent);
+    border-bottom:1px solid rgba(0,0,0,.06);
+  }
 
-.publications h1, .projects h1 {
-    text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 30px;
-    color: #FF6347;
-}
+  header nav ul {
+    list-style: none; display: flex; gap: .5rem;
+    margin: 0; padding: .6rem 1rem; justify-content: center;
+  }
+  header nav a {
+    color: var(--text); text-decoration: none;
+    padding: .5rem .8rem; border-radius: 10px; transition: background .2s;
+  }
+  header nav a:hover { background: rgba(0,0,0,.05); }
+  header nav a.active { background: rgba(14,165,233,.1); outline: 2px solid var(--ring); }
+  
+  /* Sections */
+  .section { max-width: 1100px; margin: 0 auto; padding: 3rem 1rem; }
+  .section.light { background: #f3f4f6; border-top: 1px solid rgba(0,0,0,.04); border-bottom: 1px solid rgba(0,0,0,.04); }
+  .section-header {
+    display:flex; align-items:center; justify-content:space-between; margin-bottom: 1rem;
+  }
+  .section-header h2 { margin: 0; font-size: 1.6rem; }
+  .section-header .view-all { color: var(--accent); text-decoration: none; font-weight: 600; }
+  
+  .intro {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    align-items: center;
+    gap: 3rem;
+    padding: 4rem 2rem;
+    background: linear-gradient(180deg, var(--card), var(--bg-2));
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.06);
+  }
+  
+  /* Desktop / default size */
+.profile-pic.profile-pic-large {
+    width: 360px;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid var(--card);
+    box-shadow: 0 12px 36px rgba(0,0,0,.18);
+  }
+  
+  /* Keep it sensible on smaller screens */
+  @media (max-width: 900px) {
+    .profile-pic.profile-pic-large {
+      width: 220px;
+      height: 220px;
+    }
+  }
+  
+  
+  
+  /* Headings + text */
+  .about-me-text h1{ font-size:2.8rem; margin:.2rem 0 .6rem; }
+  .about-me-text p{ color:var(--muted); font-size:1.05rem; }
+  
+  /* Chips with a little color */
+  .highlights{ margin-top:.9rem; display:flex; flex-wrap:wrap; gap:.55rem; }
+  .highlights span{
+    background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 12%, white), color-mix(in srgb, var(--accent-2) 14%, white));
+    color:#0f172a; padding:.38rem .7rem; border-radius:999px; font-size:.9rem;
+    border:1px solid rgba(0,0,0,.06);
+  }
+  
+  /* Buttons more tactile */
+.btn{ text-decoration:none; padding:.75rem 1rem; border-radius:12px; font-weight:700; display:inline-block; box-shadow:0 6px 14px rgba(0,0,0,.08); }
+.btn-primary{ background:var(--accent); color:white; }
+.btn-primary:hover{ filter:brightness(.95); }
+.btn-secondary{ background:color-mix(in srgb, var(--bg) 75%, white); color:#111; border:1px solid rgba(0,0,0,.06); }
+  
+  /* Cards & Grid */
+  .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
+  .card {
+    grid-column: span 6;
+    background: var(--card);
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 16px;
+    padding: 1rem 1.1rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  }
+  .card h3 { margin: .2rem 0 .4rem; }
+  .card .meta { color: var(--muted); font-size: .9rem; }
+  .card a { color: var(--accent); font-weight: 600; text-decoration: none; }
+  .card a:hover { text-decoration: underline; }
+  
+  /* Footer */
+  .site-footer {
+    text-align: center; color: #444; padding: 16px 0; font-size: .95rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 900px) {
+    .intro { grid-template-columns: 1fr; text-align: center; }
+    .profile-pic { width: 200px; height: 200px; }
+    .card { grid-column: span 12; }
+  }
+  
+  /* Optional: subtle reveal */
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* Writing section background (distinct from page) */
+.section.blogs{
+    background:
+      radial-gradient(900px 300px at 10% 0%, rgba(14,165,233,.10), transparent 60%),
+      radial-gradient(700px 260px at 90% 100%, rgba(124,58,237,.10), transparent 60%),
+      var(--bg-2);
+    border-top: 1px solid rgba(0,0,0,.04);
+    border-bottom: 1px solid rgba(0,0,0,.04);
+  }
+  
+  /* Blog grid */
+  .blog-grid{
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.1rem;
+    margin-top: 1rem;
+  }
+  .blog-card{
+    grid-column: span 6;
+    perspective: 1200px;       /* enables 3D flip */
+    text-decoration: none;
+  }
+  @media (max-width: 900px){ .blog-card{ grid-column: span 12; } }
+  
+  /* Flip core */
+  .flip .card-inner{
+    position: relative;
+    width: 100%;
+    height: 280px;
+    transform-style: preserve-3d;
+    transition: transform .6s ease;
+    border-radius: 16px;
+  }
+  .flip:hover .card-inner{ transform: rotateY(180deg); }
+  
+  .card-face{
+    position:absolute; inset:0;
+    border-radius:16px;
+    overflow:hidden;
+    backface-visibility: hidden;
+    box-shadow: 0 12px 28px rgba(0,0,0,.10);
+    border:1px solid rgba(0,0,0,.06);
+  }
+  
+  /* Front (image) */
+  .card-front img{
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+  .img-overlay{
+    position:absolute; inset:auto 0 0 0; padding: .85rem 1rem;
+    background: linear-gradient(180deg, transparent, rgba(0,0,0,.55));
+    color: #fff;
+  }
+  .img-overlay h3{ margin:0 0 .2rem; font-size:1.1rem; }
+  .img-overlay .meta{ margin:0; opacity:.85; font-size:.9rem; }
+  
+  /* Back (excerpt) */
+  .card-back{
+    transform: rotateY(180deg);
+    display:flex; align-items:center; justify-content:center;
+    background: var(--card);
+  }
+  .back-content{ padding: 1rem 1.1rem; color: var(--text); text-align:left; }
+  .back-content h3{ margin:.2rem 0 .4rem; }
+  .back-content p{ margin:0; color:#374151; }
+  .back-content .cta{ display:inline-block; margin-top:.7rem; color:var(--accent); font-weight:700; }
+  
+  /* Accessibility: respect reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .flip .card-inner{ transition:none; }
+    .flip:hover .card-inner{ transform:none; }
+    /* show back content below image so nothing is hidden */
+    .card-back{ position:relative; transform:none; box-shadow:none; border:none; }
+    .card-front{ position:relative; }
+    .card-inner{ height:auto; }
+  }
+
+  /* === WIDTH OVERRIDES (put at very end of style.css) === */
+
+/* Make all sections wider and responsive */
+.section{
+    max-width: none;                 /* kill old caps */
+    width: min(1600px, 96vw);        /* was ~1100px → now wider */
+    margin-inline: auto;
+    padding: clamp(2rem, 3.2vw, 3rem) clamp(1rem, 3vw, 2rem);
+  }
+  
+  /* Header nav and footer should match the same width */
+  .site-header nav,
+  .site-footer{
+    max-width: none;
+    width: min(1600px, 96vw);
+    margin-inline: auto;
+  }
+  
+  /* Grids should truly stretch */
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: clamp(.9rem, 1.1vw, 1.2rem);
+  }
+  
+  /* Blog cards: show 3-up on large screens */
+  .blog-card{ grid-column: span 4; }              /* 12 / 4 = 3 per row */
+  @media (max-width: 1100px){ .blog-card{ grid-column: span 6; } }  /* 2-up */
+  @media (max-width: 700px){  .blog-card{ grid-column: span 12; } } /* 1-up */
+  
+  /* About/Hero: ensure the image/text grid uses the space */
+  .intro{
+    grid-template-columns: 1fr 1.2fr;   /* left image, right text */
+    gap: clamp(2rem, 3vw, 3rem);
+  }
+  .intro .left{ display:flex; justify-content:center; }

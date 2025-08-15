@@ -1,76 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work Experience - Artistic Lion</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Work Experience – Shikha Soneji</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Page-specific light helpers; safe with your stylesheet */
+    .section { max-width: 1100px; margin: 0 auto; padding: 3rem 1rem; }
+    .lead { color: #374151; margin-top: .5rem; }
+    .impact { background: #f3f4f6; border: 1px solid rgba(0,0,0,.05); border-radius: 16px; padding: 1rem 1.1rem; margin: 1rem 0 2rem; }
+    .chips { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.75rem }
+    .chip { background:#eef2f6; color:#374151; padding:.35rem .7rem; border-radius:999px; font-size:.9rem }
+    .experience { background: #fff; border: 1px solid rgba(0,0,0,.06); border-radius: 16px; padding: 1rem 1.1rem; box-shadow: 0 6px 18px rgba(0,0,0,.06); margin-bottom: 1rem; }
+    .experience h2 { margin: .2rem 0 .25rem; font-size: 1.15rem; }
+    .role { margin: 0 0 .5rem; color:#374151 }
+    .subtle { color:#6b7280; }
+    .proj-grid { display:grid; grid-template-columns: repeat(12,1fr); gap:1rem; margin-top:1rem }
+    .proj { grid-column: span 6; background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:16px; padding:1rem 1.1rem; box-shadow:0 6px 18px rgba(0,0,0,.06) }
+    .proj h3 { margin:.2rem 0 .4rem }
+    @media (max-width: 900px){ .proj { grid-column: span 12; } }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="site-title">Artistic Lion</div>
-        <nav>
+  <!-- Header -->
+  <header class="site-header">
+    <nav aria-label="Primary">
+      <ul>
+        <!-- Link back into your single-page anchors -->
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="index.html#writing">Writing</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="work.html" class="active">Work Experience</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <section class="section work-experience">
+      <h1 style="margin-top:0">Work Experience</h1>
+      <p class="lead">
+        I design and deploy human-centered AI systems—turning noisy conversations and policy text into
+        clear, actionable intelligence. Below are the roles and projects where I delivered measurable impact.
+      </p>
+
+      <!-- Impact Highlights -->
+      <div class="impact">
+        <strong>Impact highlights</strong>
+        <ul>
+          <li>Built a GPT-powered <em>Brief Generation</em> pipeline that structured 30k+ conversations into reusable Q&A briefs; validated ~90%+ match quality and reduced duplication to improve content reuse and coverage.</li>
+          <li>Evaluated Salesforce <em>Einstein Search for Answers</em> on 1k+ real queries with accuracy/grounding/faithfulness scoring; authored DMO comparisons and instituted clarity-based validation for higher reliability.</li>
+          <li>Led <em>Agent Opportunity & Transfer Behavior</em> analyses over 70k+ transcripts; surfaced self-solvable cases and disambiguation triggers to cut unnecessary transfers and effort.</li>
+          <li>Developed <em>callback prediction</em> features (topics, intent, answer presence, resolution type); produced Tableau insights that informed proactive outreach and repeat-issue prevention.</li>
+        </ul>
+        <div class="chips">
+          <span class="chip">NLP & LLMs</span>
+          <span class="chip">Prompt Engineering</span>
+          <span class="chip">Evaluation & QA</span>
+          <span class="chip">Tableau Dashboards</span>
+          <span class="chip">Python</span>
+          <span class="chip">Salesforce / Einstein</span>
+        </div>
+      </div>
+
+      <!-- ADP: Data Scientist -->
+      <div class="experience">
+        <h2>Automatic Data Processing (ADP), Roseland, NJ</h2>
+        <p class="role"><strong>Data Scientist – Emerging Solutions</strong> <span class="subtle">(Aug 2022 – Jun 2025)</span></p>
+        <ul>
+          <li><strong>Brief Generation pipeline:</strong> Classified conversations (instructional/transactional), extracted topic/sub-topic, multi-intent segments, client questions, and agent solutions; matched briefs to Help & Support articles using embeddings and clarity checks; improved precision and reduced duplicate briefs across high-frequency tax topics.</li>
+          <li><strong>Content alignment & dedup:</strong> Replaced SBERT similarity with targeted GPT prompts for nuanced brief-to-article mapping; moved precision from ~35% toward ~50%+ in key domains and cut redundant briefs substantially.</li>
+          <li><strong>Einstein Search evaluation:</strong> Designed evaluation harness for 1k+ queries (fallback 2-query strategy), retrieved EKM sources, converted to JSON, and scored for accuracy, grounding, and faithfulness; documented DMO version gaps and recommended fix paths.</li>
+          <li><strong>Agent opportunity / transfer behavior:</strong> Mined 13 months of chat/case transcripts (~75k rows); identified self-solvable intents, multi-intent ambiguities, and confirmation prompts that trigger transfers; informed design of disambiguation logic to reduce handoffs.</li>
+          <li><strong>Callback prediction:</strong> Engineered LLM-derived signals (topic taxonomy, answer presence, resolution outcome) to model repeat-contact propensity; built Tableau visuals for cohort trends and proactive remediation.</li>
+          <li><strong>Label arbitration with LLM-as-judge:</strong> Compared LLM topic/sub-topic vs. Salesforce type/sub-type in full-transcript context; selected better label pairs with rationale to surface systematic misclassifications and training opportunities.</li>
+          <li><strong>Data storytelling:</strong> Delivered stakeholder-ready dashboards (Tableau) for topic trends, agent actions, and fix-forward opportunities; partnered with SMEs to prioritize content and automation backlogs.</li>
+        </ul>
+        <div class="chips" style="margin-top:.5rem">
+          <span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">OpenAI/GPT</span>
+          <span class="chip">Embeddings</span><span class="chip">Tableau</span><span class="chip">Salesforce APIs</span>
+          <span class="chip">Databricks</span><span class="chip">Evaluation Harnesses</span>
+        </div>
+      </div>
+
+      <!-- ADP: Associate App Dev -->
+      <div class="experience">
+        <h2>Automatic Data Processing (ADP), Roseland, NJ</h2>
+        <p class="role"><strong>Associate Application Developer</strong> <span class="subtle">(Jan 2020 – Aug 2021)</span></p>
+        <ul>
+          <li>Built migration scripts to move work items from Rally to Jira (Python + Atlassian APIs), streamlining reporting and auditability.</li>
+          <li>Contributed to the One Login Page (OLP): added React components for sign-in UX and enhanced backend auth flows (Java/Spring Boot) for resilience and clarity.</li>
+        </ul>
+      </div>
+
+      <!-- ADP: Internship -->
+      <div class="experience">
+        <h2>Automatic Data Processing (ADP), Roseland, NJ</h2>
+        <p class="role"><strong>Global Product & Technology Intern</strong> <span class="subtle">(Jun 2019 – Aug 2019)</span></p>
+        <ul>
+          <li>Developed programmatic reporting on AWS cost/capacity/usage (Cost Explorer) and presented visual insights for leadership decisions.</li>
+        </ul>
+      </div>
+
+      <!-- Accenture -->
+      <div class="experience">
+        <h2>Accenture Solutions Pvt. Ltd., Mumbai, India</h2>
+        <p class="role"><strong>Associate Software Engineer</strong> <span class="subtle">(Jan 2018 – Aug 2018)</span></p>
+        <ul>
+          <li>Supported “The Travelers Companies” account with ETL and analytics; performed database ops on insurance datasets.</li>
+          <li>Trained across Informatica, Ab Initio, Tableau, QlikView; implemented data integration pipelines to improve data availability.</li>
+        </ul>
+      </div>
+
+      <!-- SERC / Stevens -->
+      <div class="experience">
+        <h2>Systems Engineering Research Center, Stevens Institute of Technology</h2>
+        <p class="role"><strong>Graduate Research Assistant</strong> <span class="subtle">(Aug 2019 – Dec 2019)</span></p>
+        <ul>
+          <li>Built text + visual analytics for assessing systems-engineering effectiveness; co-authored peer-reviewed publications (IEEE Systems Journal, SysCon).</li>
+        </ul>
+      </div>
+
+      <!-- Selected Projects -->
+      <div class="section" style="padding: 1rem 0 0">
+        <h2 style="margin-bottom:.5rem">Selected Projects</h2>
+        <div class="proj-grid">
+          <article class="proj">
+            <h3>GPT-Powered Brief Generation</h3>
+            <p class="subtle">NLP • Prompt Engineering • Evaluation</p>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="work.html" class="active">Work Experience</a></li>
-                <li><a href="research.html">Research Experience</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="publications.html">Publications</a></li>
+              <li>Converted chats into atomic Q&A briefs aligned 1:1 with Help & Support articles; validated with clarity scoring and quote-matching.</li>
+              <li>Cut duplication and improved precision for high-frequency tax topics; provided SME-ready review artifacts.</li>
             </ul>
-        </nav>
-    </header>
+          </article>
+          <article class="proj">
+            <h3>Einstein Search for Answers — Evaluation</h3>
+            <p class="subtle">Salesforce • Retrieval QA • Metrics</p>
+            <ul>
+              <li>Ran 1k+ real queries with fallback logic and EKM retrieval; scored accuracy, grounding, faithfulness; documented DMO variance.</li>
+              <li>Recommended model/data alignment fixes and terminology normalization for better matchability.</li>
+            </ul>
+          </article>
+          <article class="proj">
+            <h3>Agent Opportunity & Transfers</h3>
+            <p class="subtle">Behavior Analytics • Multi-intent Disambiguation</p>
+            <ul>
+              <li>Identified self-solvable intents and ambiguous flows (e.g., confirmation prompts, direct-deposit overlaps) driving unnecessary transfers.</li>
+              <li>Informed UX and policy updates to reduce handoffs and client effort.</li>
+            </ul>
+          </article>
+          <article class="proj">
+            <h3>Callback Propensity Features</h3>
+            <p class="subtle">Feature Engineering • Tableau Storytelling</p>
+            <ul>
+              <li>Derived LLM features (topics, answer presence, resolution type) to explain repeat contacts; visualized root causes and cohorts.</li>
+              <li>Enabled proactive playbooks for high-risk clients.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
 
-    <!-- Main Content -->
-    <main>
-        <section class="work-experience">
-            <h1>Work Experience</h1>
+    </section>
+  </main>
 
-            <div class="experience">
-                <h2>Automatic Data Processing (ADP), Roseland, NJ</h2>
-                <p><strong>Associate Application Developer</strong> (Jan 2020 - Aug 2021)</p>
-                <ul>
-                    <li>Orchestrated development of scripts for data migration, including various types of issues from Rally tool to JIRA Atlassian tool (Python, JIRA).</li>
-                    <li>Delivered the One Login Page (OLP) using ReactJS: Added various components to the Sign-in UI service, troubleshooting and adding features to the back end of the main Login Page of ADP using Java and Spring Boot.</li>
-                </ul>
-            </div>
-
-            <div class="experience">
-                <p><strong>Global Product and Technology Intern</strong> (June 2019 - Aug 2019)</p>
-                <ul>
-                    <li>Hired as a summer intern by the Access and Identity Management (AIM) team for application development of a service that generates reports and helps understand trends of the costs, capacity, and usage patterns.</li>
-                    <li>Executed and finalized the format of reports, fully programmatically designed.</li>
-                    <li>Exhibited a presentation showcasing all visualizations for Cost Explorer from AWS.</li>
-                </ul>
-            </div>
-
-            <div class="experience">
-                <h2>Accenture Solutions Private Limited, Mumbai, India</h2>
-                <p><strong>Associate Software Engineer</strong> (Jan 2018 - Aug 2018)</p>
-                <ul>
-                    <li>Assigned to team ‘The Travelers Companies’, performing various database operations on insurance data of customers.</li>
-                    <li>Trained and skilled in Informatica, Putty, Tableau, QlikView, and Abinitio.</li>
-                    <li>Implemented data integration technologies along with ETL on Abinitio tool.</li>
-                </ul>
-            </div>
-
-            <div class="experience">
-                <h2>Systems Engineering Research Center, Stevens Institute of Technology</h2>
-                <p><strong>Graduate Research Assistant</strong> (Aug 2019 - Dec 2019)</p>
-                <ul>
-                    <li>Built data visualization tools to assess systems engineering effectiveness.</li>
-                    <li>Published research papers on text and visual analytics for engineering performance.</li>
-                </ul>
-            </div>
-
-            
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 Artistic Lion. All Rights Reserved.</p>
-    </footer>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>© 2025 Shikha Soneji. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>

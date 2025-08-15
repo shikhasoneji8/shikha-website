@@ -1,39 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shikha Soneji - Projects</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects – Shikha Soneji</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Page-scoped helpers; safe with your stylesheet */
+    .section { max-width: 1100px; margin: 0 auto; padding: 3rem 1rem; }
+    .lead { color:#374151; margin:.5rem 0 1rem; }
+    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap:1rem; }
+    .card {
+      grid-column: span 6;
+      background:#fff; border:1px solid rgba(0,0,0,.06);
+      border-radius:16px; padding:1rem 1.1rem;
+      box-shadow:0 6px 18px rgba(0,0,0,.06);
+    }
+    .card h3 { margin:.2rem 0 .35rem; }
+    .meta { color:#6b7280; font-size:.9rem; margin-bottom:.4rem; }
+    .bullets { margin:.4rem 0 0; padding-left:1.1rem; }
+    .stack { margin-top:.6rem; display:flex; flex-wrap:wrap; gap:.4rem; }
+    .chip { background:#eef2f6; color:#374151; padding:.35rem .7rem; border-radius:999px; font-size:.9rem; }
+    .link { color:#0ea5e9; font-weight:600; text-decoration:none; }
+    .link:hover { text-decoration:underline; }
+    .section-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem; }
+    .section-header h2 { margin:0; font-size:1.6rem; }
+    @media (max-width: 900px){ .card{ grid-column: span 12; } }
+  </style>
 </head>
-<body class="projects">
-    <div class="wrapper">
-        <header>
-            <h1>Projects</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Me</a></li>
-                    <li><a href="work.html">Work Experience</a></li>
-                    <li><a href="research.html">Research Experience</a></li>
-                    <li><a href="publications.html" class="active">Publications</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <h2>Notable Projects</h2>
-            <ul>
-                <li><strong>Automated Handwritten Devanagari Character Recognition</strong>: Developed a machine learning model to recognize Devanagari script characters.</li>
-                <li><strong>Privacy-Preserving Cloud Auditing</strong>: Designed a secure web application for auditing cloud environments.</li>
-                <li><strong>Explainable AI for Legal Documents</strong>: Created a system to simplify and summarize privacy policies for user understanding.</li>
-                <li><strong>Employee Attrition Prediction</strong>: Built a predictive model to analyze employee turnover using Python.</li>
-                <li><strong>Impact of Lockdown on Mental Health</strong>: Conducted a global survey and visualized insights. 
-                    <a href="lockdown-mental-health.html">Learn More</a></li>
-            </ul>
-        </main>
-        <footer>
-            <p>© 2025 Shikha Soneji. All Rights Reserved.</p>
-        </footer>
-    </div>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <nav aria-label="Primary">
+      <ul>
+        <!-- Link back into your single-page anchors -->
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="index.html#writing">Writing</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="work.html">Work Experience</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <section class="section">
+      <h1 style="margin-top:0">Projects</h1>
+      <p class="lead">
+        A selection of systems I designed and shipped across enterprise GenAI, evaluation frameworks, and privacy-aware NLP.
+        Each card highlights the goal, what I built, and the impact.
+      </p>
+
+      <!-- Flagship: ADP / GenAI -->
+      <div class="section-header">
+        <h2>Flagship — Enterprise GenAI & Evaluation</h2>
+        <a class="link" href="work.html">See related work →</a>
+      </div>
+      <div class="grid">
+        <!-- Brief Generation -->
+        <article class="card">
+          <h3>GPT-Powered Brief Generation Pipeline</h3>
+          <div class="meta">NLP • Prompt Engineering • Content Ops</div>
+          <ul class="bullets">
+            <li>Converted 30k+ chats into atomic Q&A briefs (topic, sub-topic, intent, solution) aligned 1:1 with Help &amp; Support articles.</li>
+            <li>Two-stage validation (quote match + clarity score) achieved ~90%+ match quality; deduplication cut redundant briefs substantially.</li>
+            <li>Enabled SME review at scale and improved coverage for high-frequency tax topics.</li>
+          </ul>
+          <div class="stack">
+            <span class="chip">Python</span><span class="chip">OpenAI/GPT</span><span class="chip">Embeddings</span><span class="chip">Databricks</span><span class="chip">Tableau</span>
+          </div>
+        </article>
+
+        <!-- Einstein Evaluation -->
+        <article class="card">
+          <h3>Salesforce Einstein Search — Evaluation Harness</h3>
+          <div class="meta">Retrieval QA • Grounding • Faithfulness</div>
+          <ul class="bullets">
+            <li>Ran 1k+ real queries with fallback logic and EKM retrieval; exported JSON traces for repeatable scoring.</li>
+            <li>Scored accuracy, grounding, faithfulness; documented DMO version drift and terminology alignment gaps.</li>
+            <li>Shipped recommendations that improved answerability and matchability.</li>
+          </ul>
+          <div class="stack">
+            <span class="chip">Salesforce APIs</span><span class="chip">Python</span><span class="chip">RAG</span><span class="chip">Evaluation</span>
+          </div>
+        </article>
+
+        <!-- Agent Opportunity -->
+        <article class="card">
+          <h3>Agent Opportunity & Transfer Behavior Analytics</h3>
+          <div class="meta">Behavior Mining • Multi-Intent Disambiguation</div>
+          <ul class="bullets">
+            <li>Analyzed ~75k transcripts over 13 months; detected self-solvable intents and ambiguity triggers (confirmation prompts, overlapping flows).</li>
+            <li>Informed UX copy, disambiguation logic, and playbooks to reduce unnecessary transfers and client effort.</li>
+          </ul>
+          <div class="stack">
+            <span class="chip">Python</span><span class="chip">NLP</span><span class="chip">Taxonomy</span><span class="chip">Tableau</span>
+          </div>
+        </article>
+
+        <!-- Callback Prediction -->
+        <article class="card">
+          <h3>Callback Propensity Feature Store</h3>
+          <div class="meta">Feature Engineering • Data Products</div>
+          <ul class="bullets">
+            <li>Engineered LLM-based features (topics, answer presence, resolution type) to model repeat-contact risk.</li>
+            <li>Tableau reporting surfaced cohorts and root causes; enabled proactive outreach and fix-forward ops.</li>
+          </ul>
+          <div class="stack">
+            <span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">LLM Signals</span><span class="chip">Visualization</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Privacy & Research -->
+      <div class="section-header" style="margin-top:2rem">
+        <h2>Privacy, Policy & Research</h2>
+        <a class="link" href="publications.html">View publications →</a>
+      </div>
+      <div class="grid">
+        <!-- Policy Overlap -->
+        <article class="card">
+          <h3>Policy Overlap Analyzer (ToS ↔ Privacy)</h3>
+          <div class="meta">Legal NLP • Summarization • Explainability</div>
+          <ul class="bullets">
+            <li>Classified and summarized clauses from ToS;DR-derived taxonomies; surfaced overlaps and contradictions across ToS and Privacy Policies.</li>
+            <li>Produced human-readable comparisons and heatmaps to increase transparency and known consent.</li>
+          </ul>
+          <div class="stack">
+            <span class="chip">RoBERTa/PrivBERT</span><span class="chip">LLM Summaries</span><span class="chip">Taxonomy</span>
+          </div>
+        </article>
+
+        <!-- Ontology / EMNLP -->
+        <article class="card">
+          <h3>Privacy Ontology & EMNLP Submission</h3>
+          <div class="meta">Ontology • Hierarchical Labels • Evaluation</div>
+          <ul class="bullets">
+            <li>Designed hierarchical ontology for privacy policy comprehension; aligned GPT labeling with transparent prompting and error analysis.</li>
+            <li>Benchmarked against baselines; documented metrics, inter-rater guidance, and dataset structure.</li>
+          </ul>
+          <div class="stack">
+            <span class="chip">Ontology</span><span class="chip">Evaluation</span><span class="chip">Error Analysis</span>
+          </div>
+        </article>
+
+        <!-- XAI Metrics -->
+        <article class="card">
+          <h3>XAI: Human-AI Prediction Accuracy Metrics</h3>
+          <div class="meta">Explainable AI • Human Factors</div>
+          <ul class="bullets">
+            <li>Explored measurement strategies for human-AI team accuracy in explainable systems; clarified evaluation pitfalls and best practices.</li>
+          </ul>
+          <div class="stack">
+            <span class="chip">XAI</span><span class="chip">Experiment Design</span>
+          </div>
+        </article>
+
+        <!-- “Emissions Impossible” -->
+        <article class="card">
+          <h3>Emissions Impossible — AI “What-If” Scenarios</h3>
+          <div class="meta">AI for Social Impact • Scenario Planning</div>
+          <ul class="bullets">
+            <li>Outlined five “what-if” interventions where AI reduces emissions; analyzed feasibility, trade-offs, and measurement pathways.</li>
+          </ul>
+          <div class="stack">
+            <span class="chip">Position Paper</span><span class="chip">Sustainability</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Earlier / Foundational -->
+      <div class="section-header" style="margin-top:2rem">
+        <h2>Earlier / Foundational Projects</h2>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3>Automated Handwritten Devanagari Character Recognition</h3>
+          <div class="meta">Computer Vision • Classical ML</div>
+          <ul class="bullets">
+            <li>Built a character recognition pipeline for Devanagari script; compared feature extraction and classifier performance.</li>
+          </ul>
+          <div class="stack">
+            <span class="chip">Python</span><span class="chip">CV</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Privacy-Preserving Cloud Auditing</h3>
+          <div class="meta">Security • Web App</div>
+          <ul class="bullets">
+            <li>Prototyped a web application enabling audit transparency with privacy safeguards for shared cloud data.</li>
+          </ul>
+          <div class="stack">
+            <span class="chip">Cloud</span><span class="chip">Security</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Explainable AI for Legal Documents</h3>
+          <div class="meta">Summarization • UX</div>
+          <ul class="bullets">
+            <li>Developed policy summaries optimized for readability, highlighting rights, obligations, and sensitive data flows.</li>
+          </ul>
+          <div class="stack">
+            <span class="chip">LLMs</span><span class="chip">Summaries</span><span class="chip">Design</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Employee Attrition Prediction</h3>
+          <div class="meta">Predictive Modeling</div>
+          <ul class="bullets">
+            <li>Trained models to identify attrition risk and key drivers; delivered interpretable insights for HR decisions.</li>
+          </ul>
+          <div class="stack">
+            <span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">EDA</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Lockdown & Mental Health Survey</h3>
+          <div class="meta">Survey • Storytelling</div>
+          <ul class="bullets">
+            <li>Conducted a global survey and built visual narratives to surface population-level stressors and coping patterns.</li>
+          </ul>
+          <div class="stack">
+            <span class="chip">Survey Design</span><span class="chip">Visualization</span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>© 2025 Shikha Soneji. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>

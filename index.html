@@ -1,38 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shikha Soneji</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shikha Soneji</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">About Me</a></li>
-                <li><a href="work.html">Work Experience</a></li>
-                <li><a href="research.html">Research Experience</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="publications.html">Publications</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="intro">
-            <img src="images/profile_picture.jpeg" alt="Shikha Soneji" class="profile-pic">
-            <div class="about-me-text">
-                <h1>Shikha Soneji</h1>
-                <p>
-                    Hello! My name is Shikha Soneji, also known as Artistic Lion. I’m passionate about analyzing data and 
-                    creating impactful stories through numbers. With a unique blend of technical expertise and creativity, 
-                    I bring insights to life. Welcome to my portfolio!
-                </p>
+  <!-- Header -->
+  <header class="site-header">
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#about" class="active">About</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#writing">Writing</a></li>
+        <li><a href="work.html">Work Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="publications.html">Publications</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ABOUT / HERO -->
+    <section id="about" class="intro section wide">
+      <div class="left">
+        <!-- Bigger circular photo on the left -->
+        <img src="images/main_picture_shikha.jpg" alt="Shikha Soneji" class="profile-pic profile-pic-large"/>
+      </div>
+
+      <div class="right about-me-text">
+        <h1>Shikha Soneji</h1>
+        <p>
+          I’m a Data Scientist and PhD Candidate building human-centered AI in NLP and Explainable AI —
+          systems that are accurate, transparent, and useful. My work spans enterprise GenAI at ADP,
+          research at Penn State’s PlainText Lab, and privacy-aware tools that help people understand
+          what they’re agreeing to.
+        </p>
+
+        <div class="highlights">
+          <span>🧠 NLP & LLMs</span>
+          <span>🔎 Explainable AI</span>
+          <span>🛡️ Privacy & Policy</span>
+          <span>📊 Data Products</span>
+        </div>
+
+        <div class="cta-buttons">
+          <a href="#writing" class="btn btn-primary">View my work</a>
+          <a href="#news" class="btn btn-secondary">What’s new</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+<section id="news" class="section light wide">
+    <div class="section-header">
+      <h2>News</h2>
+      <a class="view-all" href="#" target="_blank" rel="noopener">See all updates</a>
+    </div>
+  
+    <!-- Minimal timeline styles scoped to this page -->
+    <style>
+      .news-timeline{list-style:none;margin:0;padding:0;position:relative}
+      .news-timeline::before{content:"";position:absolute;left:120px;top:0;bottom:0;width:2px;background:rgba(0,0,0,.08)}
+      .news-year{display:flex;align-items:center;gap:.6rem;margin:1.2rem 0 .6rem;color:#6b7280;font-weight:700;letter-spacing:.02em}
+      .news-item{display:grid;grid-template-columns:120px 1fr;gap:1rem;position:relative;padding:.8rem 0}
+      .news-date{justify-self:end;text-align:right;color:#6b7280;min-width:120px;padding-right:.75rem;font-variant-numeric:tabular-nums}
+      .news-node{position:absolute;left:120px;top:1.25rem;transform:translate(-50%,-50%);width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(14,165,233,.15)}
+      .news-body{background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:14px;padding:.85rem 1rem;box-shadow:0 8px 22px rgba(0,0,0,.05)}
+      .news-title{margin:.1rem 0 .25rem;font-weight:700}
+      .news-meta{color:#6b7280;font-size:.92rem;margin:.1rem 0 0}
+      .news-link{color:var(--accent);font-weight:600;text-decoration:none}
+      .news-link:hover{text-decoration:underline}
+      @media (max-width:700px){.news-timeline::before{left:88px}.news-item{grid-template-columns:88px 1fr}.news-date{min-width:88px;padding-right:.5rem}.news-node{left:88px}}
+    </style>
+  
+    <ol class="news-timeline">
+      <!-- 2025 -->
+      <li class="news-year">2025</li>
+  
+      <li class="news-item">
+        <div class="news-date"><time datetime="2025-05">May 2025</time></div>
+        <span class="news-node"></span>
+        <div class="news-body">
+          <div class="news-title">🏆 AI Award — AI Societal Impact for “I Agree? Oops, You Just Signed Away Your Privacy!”</div>
+          <!-- Replace # with the real URL when you have it -->
+          <a class="news-link" href="#" target="_blank" rel="noopener">Award link</a>
+        </div>
+      </li>
+  
+      <li class="news-item">
+        <div class="news-date"><time datetime="2025-04">Apr 2025</time></div>
+        <span class="news-node"></span>
+        <div class="news-body">
+          <div class="news-title">🎙️ Attended Rotary “Burn & Learn” biochar talk</div>
+          <div class="news-meta">Hosted by Kathleen Draper & Finger Lakes Biochar crew — Canandaigua, NY</div>
+        </div>
+      </li>
+  
+      <li class="news-item">
+        <div class="news-date"><time datetime="2025-04">Apr 2025</time></div>
+        <span class="news-node"></span>
+        <div class="news-body">
+          <div class="news-title">🖼️ Poster: “Laugh Now, Cry Later: The ‘I Agree’ Button and Your Vanishing Privacy!”</div>
+          <div class="news-meta">Penn State IST Success Showcase</div>
+        </div>
+      </li>
+  
+      <li class="news-item">
+        <div class="news-date"><time datetime="2025-04">Apr 2025</time></div>
+        <span class="news-node"></span>
+        <div class="news-body">
+          <div class="news-title">🧑‍⚖️ Judge — SHarkHack (Major League Hacking)</div>
+          <div class="news-meta">Boston, MA</div>
+        </div>
+      </li>
+  
+      <li class="news-item">
+        <div class="news-date"><time datetime="2025-04">Apr 2025</time></div>
+        <span class="news-node"></span>
+        <div class="news-body">
+          <div class="news-title">🧑‍⚖️ Judge — Future Business Leaders of America (FBLA)</div>
+          <div class="news-meta">Pennsylvania</div>
+        </div>
+      </li>
+  
+      <li class="news-item">
+        <div class="news-date"><time datetime="2025-03">Mar 2025</time></div>
+        <span class="news-node"></span>
+        <div class="news-body">
+          <div class="news-title">👩‍🔬 Featured — Women in AI “Weekly Scientist Spotlight”</div>
+        </div>
+      </li>
+  
+      <!-- 2024 -->
+      <li class="news-year">2024</li>
+  
+      <li class="news-item">
+        <div class="news-date"><time datetime="2024-05">May 2024</time></div>
+        <span class="news-node"></span>
+        <div class="news-body">
+          <div class="news-title">🎓 Defended PhD proposal (Comprehensive Exam completed)</div>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+   <!-- WRITING (Blog cards with image flip) -->
+<section id="writing" class="section blogs wide">
+    <div class="section-header">
+      <h2>Writing</h2>
+      <a class="view-all" href="https://www.linkedin.com/in/shikhasoneji/recent-activity/all/" target="_blank" rel="noopener">See all posts</a>
+    </div>
+  
+    <div class="blog-grid">
+      <!-- POST 1 -->
+      <a class="blog-card flip" href="LINK_TO_POST1" target="_blank" rel="noopener" aria-label="AI First vs People First: Where do we begin?">
+        <div class="card-inner">
+          <!-- front (image) -->
+          <div class="card-face card-front">
+            <img src="images/ai_first_people_first.png" alt="AI First vs People First cover">
+            <div class="img-overlay">
+              <h3>AI First vs People First: Where do we begin?</h3>
+              <p class="meta">LinkedIn • Aug 2025</p>
             </div>
-        </section>
-    </main>
-    <footer>
-        <p>© 2025 Shikha Soneji. All Rights Reserved.</p>
-    </footer>
+          </div>
+          <!-- back (excerpt) -->
+          <div class="card-face card-back">
+            <div class="back-content">
+              <h3>AI First vs People First</h3>
+              <p>
+                Building real-world AI means balancing model power with human needs.
+                A people-first approach reshapes AI by listening, adapting, and serving real users.
+              </p>
+              <span class="cta">Read on →</span>
+            </div>
+          </div>
+        </div>
+      </a>
+  
+      <!-- POST 2 -->
+      <a class="blog-card flip" href="LINK_TO_POST2" target="_blank" rel="noopener" aria-label="Your Data, Your Power!">
+        <div class="card-inner">
+          <div class="card-face card-front">
+            <img src="images/your_data_your_power.jpeg" alt="Your Data, Your Power cover">
+            <div class="img-overlay">
+              <h3>Your Data, Your Power!</h3>
+              <p class="meta">LinkedIn • Aug 2025</p>
+            </div>
+          </div>
+          <div class="card-face card-back">
+            <div class="back-content">
+              <h3>Your Data, Your Power!</h3>
+              <p>
+                Who owns your digital footprint? Imagine transparent, user-controlled data with
+                innovation built on true digital ownership.
+              </p>
+              <span class="cta">Read on →</span>
+            </div>
+          </div>
+        </div>
+      </a>
+  
+      <!-- POST 3 -->
+      <a class="blog-card flip" href="LINK_TO_POST3" target="_blank" rel="noopener" aria-label="Privacy in the Digital Age: Trust, Transparency & XAI">
+        <div class="card-inner">
+          <div class="card-face card-front">
+            <img src="images/post_3_img.jpeg" alt="Privacy in the Digital Age cover">
+            <div class="img-overlay">
+              <h3>Privacy in the Digital Age</h3>
+              <p class="meta">LinkedIn • Aug 2025</p>
+            </div>
+          </div>
+          <div class="card-face card-back">
+            <div class="back-content">
+              <h3>Privacy • Trust • XAI</h3>
+              <p>
+                Can XAI make privacy clearer? Key takeaways and lessons from trust, scrutiny,
+                and transparency in real-world systems.
+              </p>
+              <span class="cta">Read on →</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>© 2025 Shikha Soneji. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
 </body>
 </html>

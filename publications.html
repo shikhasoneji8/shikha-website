@@ -1,84 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publications - Artistic Lion</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Publications – Shikha Soneji</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* small page-specific helpers, safe with your stylesheet */
+    .pub-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
+    .pub-item { background: var(--card, #fff); border: 1px solid rgba(0,0,0,.06); border-radius: 16px; padding: 1rem 1.1rem; box-shadow: 0 6px 18px rgba(0,0,0,.06); }
+    .pub-title { margin: 0 0 .35rem; font-weight: 700; }
+    .pub-authors, .pub-venue { margin: 0; color: #374151; }
+    .pub-actions { margin-top: .6rem; display: flex; flex-wrap: wrap; gap: .5rem; }
+    .chip { background: #eef2f6; color: #374151; padding: .35rem .7rem; border-radius: 999px; font-size: .9rem; }
+    .btn-small { text-decoration: none; background: #e5e7eb; color: #111; padding: .45rem .7rem; border-radius: 10px; font-weight: 600; }
+    .btn-small.primary { background: var(--accent, #0ea5e9); color: #fff; }
+    .bibtex { margin-top: .6rem; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: .75rem; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size: .9rem; overflow-x: auto; }
+    .section { max-width: 1100px; margin: 0 auto; padding: 3rem 1rem; }
+    header.site-header { position: sticky; top:0; z-index:50; backdrop-filter: saturate(140%) blur(8px); background: rgba(255,255,255,0.85); border-bottom:1px solid rgba(0,0,0,.06); }
+    header nav ul { list-style:none; display:flex; gap:.5rem; margin:0; padding:.6rem 1rem; justify-content:center; }
+    header nav a { color:#222; text-decoration:none; padding:.5rem .8rem; border-radius:10px; }
+    header nav a:hover { background: rgba(0,0,0,.05); }
+    header nav a.active { background: rgba(14,165,233,.1); outline: 2px solid rgba(14,165,233,.25); }
+    .site-footer { text-align:center; color:#444; padding:16px 0; font-size:.95rem; }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="site-title">Artistic Lion</div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="work.html">Work Experience</a></li>
-                <li><a href="research.html">Research Experience</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="publications.html" class="active">Publications</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Header -->
+  <header class="site-header">
+    <nav aria-label="Primary">
+      <ul>
+        <!-- Link back into your single-page anchors -->
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="index.html#writing">Writing</a></li>
+        <li><a href="publications.html" class="active">Publications</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Main Content -->
-    <main>
-        <section class="publications">
-            <h1>Publications</h1>
-            <ul>
-                <li>
-                    <strong>How to Measure Human-AI Prediction Accuracy in Explainable AI Systems.</strong><br>
-                    Koujalgi, S., Anderson, A., Adenuga, I., Soneji, S., Dikkala, R., Nader, T. G., et al.<br>
-                    <i>arXiv preprint</i>, arXiv:2409.00069, 2024.
-                </li>
-                <li>
-                    <strong>Demystifying Legalese: An Automated Approach for Summarizing and Analyzing Overlaps in Privacy Policies and Terms of Service.</strong><br>
-                    Soneji, S., Hoesing, M., Koujalgi, S., & Dodge, J.<br>
-                    <i>arXiv preprint</i>, arXiv:2404.13087, 2024.
-                </li>
-                <li>
-                    <strong>Revolutionizing Digital Consent: An Automated Approach to Simplifying and Deciphering Privacy Policies for Empowered User Understanding.</strong><br>
-                    Soneji, S.<br>
-                    <i>29th International Conference on Intelligent User Interfaces</i>, 2024.
-                </li>
-                <li>
-                    <strong>Systems Engineers’ Effectiveness in an Organization: Text and Visual Analytics Approach.</strong><br>
-                    Zavala, A., Soneji, S., Kothari, S., Ramirez-Marquez, J. E., Tao, H. Y. S., & Hutchison, N.<br>
-                    <i>IEEE Systems Journal</i>, 14(4), 5049–5060, 2020.
-                </li>
-                <li>
-                    <strong>Text analysis approach to systems engineers’ effectiveness in an organization.</strong><br>
-                    Soneji, S., Zavala, A., Tao, H. Y. S., Burke, P., Kothari, S., Luna, S., Hutchison, N., & Ramirez-Marquez, J.<br>
-                    <i>2019 IEEE International Systems Conference (SysCon)</i>, 1–8.
-                </li>
-                <li>
-                    <strong>Helix: Developing an understanding of organizational systems engineering effectiveness.</strong><br>
-                    Hutchinson, N. A., Verma, D., Burke, P., Giffin, R., Luna, S., Makwana, D., Kothari, S., et al.<br>
-                    <i>INCOSE International Symposium</i>, 29(1), 652–668, 2019.
-                </li>
-                <li>
-                    <strong>Evolution of the Helix Project: From Investigating the Effectiveness of Individual Systems Engineers to Systems Engineering Organizations.</strong><br>
-                    Hutchison, N., Tao, H. Y. S., Burke, P., Luna, S., Zavala, A., Kothari, S., Soneji, S., et al.<br>
-                    <i>Stevens Institute of Technology</i>, 2019.
-                </li>
-                <li>
-                    <strong>Key Techniques used for Security in the Cloud.</strong><br>
-                    Kotak, K. C., Wadhwani, R., Soneji, S., & Sahu, S.<br>
-                    <i>IJSRD - International Journal for Scientific Research Development</i>, 5(4), 2017.
-                </li>
-                <li>
-                    <strong>Survey on Privacy Preserving Cloud Auditing for Shared Data.</strong><br>
-                    Kotak, K. C., Wadhwani, R., Soneji, S., & Sahu, S.<br>
-                    <i>International Journal of Engineering Sciences Research Technology</i>, 6(2), 2017.
-                </li>
-            </ul>
-        </section>
-    </main>
+  <!-- Main -->
+  <main>
+    <section class="section publications">
+      <h1 style="margin-top:0">Publications</h1>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 Artistic Lion. All Rights Reserved.</p>
-    </footer>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <h3 class="pub-title">How to Measure Human-AI Prediction Accuracy in Explainable AI Systems</h3>
+          <p class="pub-authors">Koujalgi, S., Anderson, A., Adenuga, I., <strong>Soneji, S.</strong>, Dikkala, R., Nader, T. G., et&nbsp;al.</p>
+          <p class="pub-venue"><i>arXiv preprint</i>, arXiv:2409.00069, 2024.</p>
+          <div class="pub-actions">
+            <a class="btn-small primary" href="https://arxiv.org/abs/2409.00069" target="_blank" rel="noopener">View on arXiv</a>
+            <span class="chip">Explainable AI</span>
+            <span class="chip">Human-AI collaboration</span>
+          </div>
+          <pre class="bibtex">@article{koujalgi2024measure,
+  title={How to Measure Human-AI Prediction Accuracy in Explainable AI Systems},
+  author={Koujalgi, S. and Anderson, A. and Adenuga, I. and Soneji, S. and Dikkala, R. and Nader, T. G. and others},
+  journal={arXiv preprint arXiv:2409.00069},
+  year={2024}
+}</pre>
+        </li>
+
+        <li class="pub-item">
+          <h3 class="pub-title">Demystifying Legalese: An Automated Approach for Summarizing and Analyzing Overlaps in Privacy Policies and Terms of Service</h3>
+          <p class="pub-authors"><strong>Soneji, S.</strong>, Hoesing, M., Koujalgi, S., &amp; Dodge, J.</p>
+          <p class="pub-venue"><i>arXiv preprint</i>, arXiv:2404.13087, 2024.</p>
+          <div class="pub-actions">
+            <a class="btn-small primary" href="https://arxiv.org/abs/2404.13087" target="_blank" rel="noopener">View on arXiv</a>
+            <span class="chip">Privacy</span>
+            <span class="chip">NLP</span>
+            <span class="chip">Policy Analysis</span>
+          </div>
+          <pre class="bibtex">@article{soneji2024demystifying,
+  title={Demystifying Legalese: An Automated Approach for Summarizing and Analyzing Overlaps in Privacy Policies and Terms of Service},
+  author={Soneji, S. and Hoesing, M. and Koujalgi, S. and Dodge, J.},
+  journal={arXiv preprint arXiv:2404.13087},
+  year={2024}
+}</pre>
+        </li>
+
+        <li class="pub-item">
+          <h3 class="pub-title">Revolutionizing Digital Consent: An Automated Approach to Simplifying and Deciphering Privacy Policies for Empowered User Understanding</h3>
+          <p class="pub-authors"><strong>Soneji, S.</strong></p>
+          <p class="pub-venue"><i>29th International Conference on Intelligent User Interfaces</i>, 2024.</p>
+          <div class="pub-actions">
+            <a class="btn-small" href="#" target="_blank" rel="noopener">Paper / Slides</a>
+            <span class="chip">Consent</span>
+            <span class="chip">Summarization</span>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <h3 class="pub-title">Systems Engineers’ Effectiveness in an Organization: Text and Visual Analytics Approach</h3>
+          <p class="pub-authors">Zavala, A., <strong>Soneji, S.</strong>, Kothari, S., Ramirez-Marquez, J. E., Tao, H. Y. S., &amp; Hutchison, N.</p>
+          <p class="pub-venue"><i>IEEE Systems Journal</i>, 14(4), 5049–5060, 2020.</p>
+          <div class="pub-actions">
+            <a class="btn-small" href="#" target="_blank" rel="noopener">Publisher</a>
+            <span class="chip">Text Mining</span>
+            <span class="chip">Analytics</span>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <h3 class="pub-title">Text analysis approach to systems engineers’ effectiveness in an organization</h3>
+          <p class="pub-authors"><strong>Soneji, S.</strong>, Zavala, A., Tao, H. Y. S., Burke, P., Kothari, S., Luna, S., Hutchison, N., &amp; Ramirez-Marquez, J.</p>
+          <p class="pub-venue"><i>2019 IEEE International Systems Conference (SysCon)</i>, 1–8.</p>
+          <div class="pub-actions">
+            <a class="btn-small" href="#" target="_blank" rel="noopener">IEEE Xplore</a>
+            <span class="chip">NLP</span>
+            <span class="chip">Org Effectiveness</span>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <h3 class="pub-title">Helix: Developing an understanding of organizational systems engineering effectiveness</h3>
+          <p class="pub-authors">Hutchinson, N. A., Verma, D., Burke, P., Giffin, R., Luna, S., Makwana, D., Kothari, S., <strong>Soneji, S.</strong>, et&nbsp;al.</p>
+          <p class="pub-venue"><i>INCOSE International Symposium</i>, 29(1), 652–668, 2019.</p>
+          <div class="pub-actions">
+            <a class="btn-small" href="#" target="_blank" rel="noopener">Publisher</a>
+            <span class="chip">Systems Engineering</span>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <h3 class="pub-title">Evolution of the Helix Project: From Investigating the Effectiveness of Individual Systems Engineers to Systems Engineering Organizations</h3>
+          <p class="pub-authors">Hutchison, N., Tao, H. Y. S., Burke, P., Luna, S., Zavala, A., Kothari, S., <strong>Soneji, S.</strong>, et&nbsp;al.</p>
+          <p class="pub-venue"><i>Stevens Institute of Technology</i>, 2019.</p>
+          <div class="pub-actions">
+            <a class="btn-small" href="#" target="_blank" rel="noopener">Report</a>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <h3 class="pub-title">Key Techniques used for Security in the Cloud</h3>
+          <p class="pub-authors">Kotak, K. C., Wadhwani, R., <strong>Soneji, S.</strong>, &amp; Sahu, S.</p>
+          <p class="pub-venue"><i>IJSRD – International Journal for Scientific Research & Development</i>, 5(4), 2017.</p>
+          <div class="pub-actions">
+            <a class="btn-small" href="#" target="_blank" rel="noopener">Journal</a>
+            <span class="chip">Cloud Security</span>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <h3 class="pub-title">Survey on Privacy Preserving Cloud Auditing for Shared Data</h3>
+          <p class="pub-authors">Kotak, K. C., Wadhwani, R., <strong>Soneji, S.</strong>, &amp; Sahu, S.</p>
+          <p class="pub-venue"><i>International Journal of Engineering Sciences Research Technology</i>, 6(2), 2017.</p>
+          <div class="pub-actions">
+            <a class="btn-small" href="#" target="_blank" rel="noopener">Journal</a>
+            <span class="chip">Cloud</span>
+            <span class="chip">Privacy</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>© 2025 Shikha Soneji. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>
