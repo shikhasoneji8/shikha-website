@@ -5,38 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projects – Shikha Soneji</title>
   <link rel="stylesheet" href="css/style.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    /* Page-scoped helpers; safe with your stylesheet */
-    .section { max-width: 1100px; margin: 0 auto; padding: 3rem 1rem; }
-    .lead { color:#374151; margin:.5rem 0 1rem; }
-    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap:1rem; }
-    .card {
-      grid-column: span 6;
-      background:#fff; border:1px solid rgba(0,0,0,.06);
-      border-radius:16px; padding:1rem 1.1rem;
-      box-shadow:0 6px 18px rgba(0,0,0,.06);
-    }
-    .card h3 { margin:.2rem 0 .35rem; }
-    .meta { color:#6b7280; font-size:.9rem; margin-bottom:.4rem; }
-    .bullets { margin:.4rem 0 0; padding-left:1.1rem; }
-    .stack { margin-top:.6rem; display:flex; flex-wrap:wrap; gap:.4rem; }
-    .chip { background:#eef2f6; color:#374151; padding:.35rem .7rem; border-radius:999px; font-size:.9rem; }
-    .link { color:#0ea5e9; font-weight:600; text-decoration:none; }
-    .link:hover { text-decoration:underline; }
-    .section-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem; }
-    .section-header h2 { margin:0; font-size:1.6rem; }
-    @media (max-width: 900px){ .card{ grid-column: span 12; } }
+    /* keep only if your global CSS doesn't already define these */
+    :root{ --card:#ffffff; --text:#0f172a; }
+
+    /* Layout wrapper just for this page */
+    .projects-wrap{ width:min(1200px,96vw); margin:0 auto; padding:24px 12px; }
+    .page-lead{ color:#6b7280; margin:.25rem 0 1rem; }
+
+    /* Titles below the image */
+    .proj-title{ margin:.55rem 0 .15rem; font-size:1.06rem; font-weight:600; }
+    .proj-subtle{ margin:0 0 .6rem; color:#6b7280; font-size:.92rem; }
+
+    /* Tap hint (hidden on hover-capable devices) */
+    .tap{ display:inline-block; margin-top:6px; font-size:12px; color:#111;
+          background:#f0f3f8; border:1px solid #e5e9f2; padding:6px 10px; border-radius:999px }
+    @media (hover:hover){ .tap{ display:none } }
   </style>
 </head>
-<body>
-  <!-- Header -->
+<body class="projects">
   <header class="site-header">
     <nav aria-label="Primary">
       <ul>
-        <!-- Link back into your single-page anchors -->
         <li><a href="index.html#about">About</a></li>
         <li><a href="index.html#news">News</a></li>
         <li><a href="index.html#writing">Writing</a></li>
@@ -47,199 +38,372 @@
     </nav>
   </header>
 
-  <!-- Main -->
-  <main>
-    <section class="section">
-      <h1 style="margin-top:0">Projects</h1>
-      <p class="lead">
-        A selection of systems I designed and shipped across enterprise GenAI, evaluation frameworks, and privacy-aware NLP.
-        Each card highlights the goal, what I built, and the impact.
-      </p>
+  <main class="projects-wrap">
+    <h1 style="margin:.2rem 0 .4rem">Projects</h1>
+    <p class="page-lead">Hover (desktop) or tap (mobile) a card to flip it and see details.</p>
+    <!-- FILTER TOOLBAR -->
+<div class="proj-filter" style="display:flex;flex-wrap:wrap;gap:.5rem;margin:12px 0 18px">
+  <button class="pf-btn pf-active" data-filter="all"
+    style="padding:.45rem .8rem;border-radius:999px;border:1px solid #e5e7eb;background:#0ea5e9;color:#fff;font-weight:600">
+    All
+  </button>
+  <button class="pf-btn" data-filter="genai"
+    style="padding:.45rem .8rem;border-radius:999px;border:1px solid #e5e7eb;background:#fff;font-weight:600">
+    GenAI & Evaluation
+  </button>
+  <button class="pf-btn" data-filter="privacy"
+    style="padding:.45rem .8rem;border-radius:999px;border:1px solid #e5e7eb;background:#fff;font-weight:600">
+    Privacy & Research
+  </button>
+  <button class="pf-btn" data-filter="foundational"
+    style="padding:.45rem .8rem;border-radius:999px;border:1px solid #e5e7eb;background:#fff;font-weight:600">
+    Foundational
+  </button>
+</div>
+    <div class="proj-grid">
+      <!-- GPT-Powered Brief Generation -->
+      <article class="proj flip" data-cat="genai" tabindex="0" aria-label="GPT-Powered Brief Generation">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <img src="images/brief_gen.png" alt="GPT Brief Generation illustration">
+          </div>
+          <div class="flip-face flip-back">
+            <div class="flip-content">
+              <h3>GPT-Powered Brief Generation</h3>
+              <ul>
+                <li>Converted chats into atomic Q&A briefs aligned 1:1 with Help &amp; Support articles; clarity + quote-match validation.</li>
+                <li>Reduced duplication; improved precision on high-frequency tax topics; SME-ready review artifacts.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <span class="tap">Tap to flip</span>
+        <h3 class="proj-title">GPT-Powered Brief Generation</h3>
+        <p class="proj-subtle">NLP • Prompt Engineering • Evaluation</p>
+      </article>
 
-      <!-- Flagship: ADP / GenAI -->
-      <div class="section-header">
-        <h2>Flagship — Enterprise GenAI & Evaluation</h2>
-        <a class="link" href="work.html">See related work →</a>
+      <!-- Einstein Search for Answers — Evaluation -->
+      <article class="proj flip" data-cat="genai" tabindex="0" aria-label="Einstein Search for Answers — Evaluation">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <img src="images/einstein_search.png" alt="Einstein Search evaluation illustration">
+          </div>
+          <div class="flip-face flip-back">
+            <div class="flip-content">
+              <h3>Einstein Search for Answers — Evaluation</h3>
+              <ul>
+                <li>1k+ real queries with fallback &amp; EKM retrieval; scored accuracy, grounding, faithfulness.</li>
+                <li>Documented DMO variance; recommended terminology normalization and model/data fixes.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <span class="tap">Tap to flip</span>
+        <h3 class="proj-title">Einstein Search for Answers — Evaluation</h3>
+        <p class="proj-subtle">Salesforce • Retrieval QA • Metrics</p>
+      </article>
+
+      <!-- Agent Opportunity & Transfers -->
+      <article class="proj flip" data-cat="genai" tabindex="0" aria-label="Agent Opportunity & Transfers">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <!-- Make sure the filename matches exactly (your repo used agent_opprotunity.png) -->
+            <img src="images/agent_opprotunity.png" alt="Agent opportunity analytics illustration">
+          </div>
+          <div class="flip-face flip-back">
+            <div class="flip-content">
+              <h3>Agent Opportunity &amp; Transfers</h3>
+              <ul>
+                <li>Analyzed ~75k transcripts; surfaced self-solvable intents &amp; ambiguity triggers driving transfers.</li>
+                <li>Informed UX copy, disambiguation logic, and playbooks to reduce handoffs.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <span class="tap">Tap to flip</span>
+        <h3 class="proj-title">Agent Opportunity &amp; Transfers</h3>
+        <p class="proj-subtle">Behavior Analytics • Multi-intent Disambiguation</p>
+      </article>
+
+      <!-- Callback Propensity Features -->
+      <article class="proj flip" data-cat="genai" tabindex="0" aria-label="Callback Propensity Features">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <img src="images/call_propensity.png" alt="Callback propensity infographic">
+          </div>
+          <div class="flip-face flip-back">
+            <div class="flip-content">
+              <h3>Callback Propensity Features</h3>
+              <ul>
+                <li>Derived LLM signals (topics, answer presence, resolution type) to explain repeat contacts.</li>
+                <li>Tableau insights enabled proactive outreach for high-risk cohorts.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <span class="tap">Tap to flip</span>
+        <h3 class="proj-title">Callback Propensity Features</h3>
+        <p class="proj-subtle">Feature Engineering • Tableau Storytelling</p>
+      </article>
+      <!-- ===== PRIVACY & RESEARCH ===== -->
+
+<!-- Policy Overlap Analyzer (ToS ↔ Privacy) -->
+<article class="proj flip" data-cat="privacy" tabindex="0" aria-label="Policy Overlap Analyzer">
+  <div class="flip-inner">
+
+    <!-- FRONT SIDE (only image) -->
+    <div class="flip-face flip-front">
+      <img src="images/privacy_overlap.png" alt="privacy overlap infographic" style="width:100%; height:auto; display:block;">
+    </div>
+
+    <!-- BACK SIDE (only text) -->
+    <div class="flip-face flip-back">
+      <div class="flip-content">
+        <h3>Policy Overlap Analyzer (ToS ↔ Privacy)</h3>
+        <ul>
+          <li>Classified & summarized clauses using ToS;DR-style taxonomy; highlighted contradictions across ToS and Privacy Policies.</li>
+          <li>Produced human-readable comparisons & heatmaps to increase transparency and informed consent.</li>
+        </ul>
       </div>
-      <div class="grid">
-        <!-- Brief Generation -->
-        <article class="card">
-          <h3>GPT-Powered Brief Generation Pipeline</h3>
-          <div class="meta">NLP • Prompt Engineering • Content Ops</div>
-          <ul class="bullets">
-            <li>Converted 30k+ chats into atomic Q&A briefs (topic, sub-topic, intent, solution) aligned 1:1 with Help &amp; Support articles.</li>
-            <li>Two-stage validation (quote match + clarity score) achieved ~90%+ match quality; deduplication cut redundant briefs substantially.</li>
-            <li>Enabled SME review at scale and improved coverage for high-frequency tax topics.</li>
-          </ul>
-          <div class="stack">
-            <span class="chip">Python</span><span class="chip">OpenAI/GPT</span><span class="chip">Embeddings</span><span class="chip">Databricks</span><span class="chip">Tableau</span>
-          </div>
-        </article>
+    </div>
 
-        <!-- Einstein Evaluation -->
-        <article class="card">
-          <h3>Salesforce Einstein Search — Evaluation Harness</h3>
-          <div class="meta">Retrieval QA • Grounding • Faithfulness</div>
-          <ul class="bullets">
-            <li>Ran 1k+ real queries with fallback logic and EKM retrieval; exported JSON traces for repeatable scoring.</li>
-            <li>Scored accuracy, grounding, faithfulness; documented DMO version drift and terminology alignment gaps.</li>
-            <li>Shipped recommendations that improved answerability and matchability.</li>
-          </ul>
-          <div class="stack">
-            <span class="chip">Salesforce APIs</span><span class="chip">Python</span><span class="chip">RAG</span><span class="chip">Evaluation</span>
-          </div>
-        </article>
+  </div>
+  <span class="tap">Tap to flip</span>
+  <h3 class="proj-title">Policy Overlap Analyzer</h3>
+  <p class="proj-subtle">Legal NLP • Summarization • Explainability</p>
+</article>
 
-        <!-- Agent Opportunity -->
-        <article class="card">
-          <h3>Agent Opportunity & Transfer Behavior Analytics</h3>
-          <div class="meta">Behavior Mining • Multi-Intent Disambiguation</div>
-          <ul class="bullets">
-            <li>Analyzed ~75k transcripts over 13 months; detected self-solvable intents and ambiguity triggers (confirmation prompts, overlapping flows).</li>
-            <li>Informed UX copy, disambiguation logic, and playbooks to reduce unnecessary transfers and client effort.</li>
-          </ul>
-          <div class="stack">
-            <span class="chip">Python</span><span class="chip">NLP</span><span class="chip">Taxonomy</span><span class="chip">Tableau</span>
-          </div>
-        </article>
-
-        <!-- Callback Prediction -->
-        <article class="card">
-          <h3>Callback Propensity Feature Store</h3>
-          <div class="meta">Feature Engineering • Data Products</div>
-          <ul class="bullets">
-            <li>Engineered LLM-based features (topics, answer presence, resolution type) to model repeat-contact risk.</li>
-            <li>Tableau reporting surfaced cohorts and root causes; enabled proactive outreach and fix-forward ops.</li>
-          </ul>
-          <div class="stack">
-            <span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">LLM Signals</span><span class="chip">Visualization</span>
-          </div>
-        </article>
+<!-- Privacy Ontology & EMNLP Submission -->
+<article class="proj flip" data-cat="privacy" tabindex="0" aria-label="Privacy Ontology & EMNLP Submission">
+  <div class="flip-inner">
+    <div class="flip-face flip-front">
+      <img src="images/ontology_disclaimer.png" alt="Ontology infographic" style="width:100%; height:auto; display:block;">
       </div>
-
-      <!-- Privacy & Research -->
-      <div class="section-header" style="margin-top:2rem">
-        <h2>Privacy, Policy & Research</h2>
-        <a class="link" href="publications.html">View publications →</a>
+      <div class="flip-face flip-back">
+        <div class="flip-content">
+          <h3>Privacy Ontology</h3>
+          <ul>
+            <li>Designed hierarchical ontology for policy comprehension; aligned GPT labeling with transparent prompts + error analysis.</li>
+            <li>Benchmarked vs. baselines; documented metrics, inter-rater guidance, and dataset structure.</li>
+          </ul>
+        </div>
       </div>
-      <div class="grid">
-        <!-- Policy Overlap -->
-        <article class="card">
-          <h3>Policy Overlap Analyzer (ToS ↔ Privacy)</h3>
-          <div class="meta">Legal NLP • Summarization • Explainability</div>
-          <ul class="bullets">
-            <li>Classified and summarized clauses from ToS;DR-derived taxonomies; surfaced overlaps and contradictions across ToS and Privacy Policies.</li>
-            <li>Produced human-readable comparisons and heatmaps to increase transparency and known consent.</li>
-          </ul>
-          <div class="stack">
-            <span class="chip">RoBERTa/PrivBERT</span><span class="chip">LLM Summaries</span><span class="chip">Taxonomy</span>
-          </div>
-        </article>
+    
+  <span class="tap">Tap to flip</span>
+  <h3 class="proj-title">Privacy Ontology & EMNLP</h3>
+  <p class="proj-subtle">Ontology • Evaluation • Error Analysis</p>
+</article>
 
-        <!-- Ontology / EMNLP -->
-        <article class="card">
-          <h3>Privacy Ontology & EMNLP Submission</h3>
-          <div class="meta">Ontology • Hierarchical Labels • Evaluation</div>
-          <ul class="bullets">
-            <li>Designed hierarchical ontology for privacy policy comprehension; aligned GPT labeling with transparent prompting and error analysis.</li>
-            <li>Benchmarked against baselines; documented metrics, inter-rater guidance, and dataset structure.</li>
-          </ul>
-          <div class="stack">
-            <span class="chip">Ontology</span><span class="chip">Evaluation</span><span class="chip">Error Analysis</span>
-          </div>
-        </article>
-
-        <!-- XAI Metrics -->
-        <article class="card">
-          <h3>XAI: Human-AI Prediction Accuracy Metrics</h3>
-          <div class="meta">Explainable AI • Human Factors</div>
-          <ul class="bullets">
-            <li>Explored measurement strategies for human-AI team accuracy in explainable systems; clarified evaluation pitfalls and best practices.</li>
-          </ul>
-          <div class="stack">
-            <span class="chip">XAI</span><span class="chip">Experiment Design</span>
-          </div>
-        </article>
-
-        <!-- “Emissions Impossible” -->
-        <article class="card">
-          <h3>Emissions Impossible — AI “What-If” Scenarios</h3>
-          <div class="meta">AI for Social Impact • Scenario Planning</div>
-          <ul class="bullets">
-            <li>Outlined five “what-if” interventions where AI reduces emissions; analyzed feasibility, trade-offs, and measurement pathways.</li>
-          </ul>
-          <div class="stack">
-            <span class="chip">Position Paper</span><span class="chip">Sustainability</span>
-          </div>
-        </article>
+<!-- XAI: Human-AI Prediction Accuracy Metrics -->
+<article class="proj flip" data-cat="privacy" tabindex="0" aria-label="XAI: Human-AI Prediction Accuracy Metrics">
+  <div class="flip-inner">
+    <div class="flip-face flip-front" style="background:
+      radial-gradient(120% 120% at 0% 0%, rgba(234,88,12,.12), transparent 60%),
+      radial-gradient(120% 120% at 100% 100%, rgba(239,68,68,.14), transparent 60%), #fff;">
+      <div style="position:absolute;inset:auto 0 0 0;padding:.85rem 1rem;background:linear-gradient(180deg,transparent,rgba(0,0,0,.55));color:#fff">
+        <h3 style="margin:0 0 .2rem;font-size:1.05rem">XAI: Human-AI Accuracy</h3>
+        <p class="subtle" style="margin:0;opacity:.9">Explainable AI • Human Factors</p>
       </div>
-
-      <!-- Earlier / Foundational -->
-      <div class="section-header" style="margin-top:2rem">
-        <h2>Earlier / Foundational Projects</h2>
+    </div>
+    <div class="flip-face flip-back">
+      <div class="flip-content">
+        <h3>XAI: Human-AI Prediction Accuracy</h3>
+        <ul>
+          <li>Explored reliable measurement strategies for human+AI team accuracy; clarified evaluation pitfalls and best practices.</li>
+        </ul>
       </div>
-      <div class="grid">
-        <article class="card">
-          <h3>Automated Handwritten Devanagari Character Recognition</h3>
-          <div class="meta">Computer Vision • Classical ML</div>
-          <ul class="bullets">
-            <li>Built a character recognition pipeline for Devanagari script; compared feature extraction and classifier performance.</li>
-          </ul>
-          <div class="stack">
-            <span class="chip">Python</span><span class="chip">CV</span>
-          </div>
-        </article>
+    </div>
+  </div>
+  <span class="tap">Tap to flip</span>
+  <h3 class="proj-title">XAI Metrics</h3>
+  <p class="proj-subtle">Explainable AI • Human Factors</p>
+</article>
 
-        <article class="card">
-          <h3>Privacy-Preserving Cloud Auditing</h3>
-          <div class="meta">Security • Web App</div>
-          <ul class="bullets">
-            <li>Prototyped a web application enabling audit transparency with privacy safeguards for shared cloud data.</li>
-          </ul>
-          <div class="stack">
-            <span class="chip">Cloud</span><span class="chip">Security</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>Explainable AI for Legal Documents</h3>
-          <div class="meta">Summarization • UX</div>
-          <ul class="bullets">
-            <li>Developed policy summaries optimized for readability, highlighting rights, obligations, and sensitive data flows.</li>
-          </ul>
-          <div class="stack">
-            <span class="chip">LLMs</span><span class="chip">Summaries</span><span class="chip">Design</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>Employee Attrition Prediction</h3>
-          <div class="meta">Predictive Modeling</div>
-          <ul class="bullets">
-            <li>Trained models to identify attrition risk and key drivers; delivered interpretable insights for HR decisions.</li>
-          </ul>
-          <div class="stack">
-            <span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">EDA</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>Lockdown & Mental Health Survey</h3>
-          <div class="meta">Survey • Storytelling</div>
-          <ul class="bullets">
-            <li>Conducted a global survey and built visual narratives to surface population-level stressors and coping patterns.</li>
-          </ul>
-          <div class="stack">
-            <span class="chip">Survey Design</span><span class="chip">Visualization</span>
-          </div>
-        </article>
+<!-- Emissions Impossible — AI What-Ifs -->
+<article class="proj flip" data-cat="privacy" tabindex="0" aria-label="Emissions Impossible">
+  <div class="flip-inner">
+    <div class="flip-face flip-front" style="background:
+      radial-gradient(120% 120% at 0% 0%, rgba(2,132,199,.12), transparent 60%),
+      radial-gradient(120% 120% at 100% 100%, rgba(59,130,246,.14), transparent 60%), #fff;">
+      <div style="position:absolute;inset:auto 0 0 0;padding:.85rem 1rem;background:linear-gradient(180deg,transparent,rgba(0,0,0,.55));color:#fff">
+        <h3 style="margin:0 0 .2rem;font-size:1.05rem">Emissions Impossible — What-Ifs</h3>
+        <p class="subtle" style="margin:0;opacity:.9">AI for Social Impact • Scenarios</p>
       </div>
-    </section>
+    </div>
+    <div class="flip-face flip-back">
+      <div class="flip-content">
+        <h3>Emissions Impossible — AI “What-If” Scenarios</h3>
+        <ul>
+          <li>Outlined five interventions where AI reduces emissions; analyzed feasibility, trade-offs, and measurement pathways.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <span class="tap">Tap to flip</span>
+  <h3 class="proj-title">Emissions Impossible</h3>
+  <p class="proj-subtle">AI for Social Impact • Scenario Planning</p>
+</article>
+
+<!-- ===== FOUNDATIONAL ===== -->
+
+<article class="proj flip" data-cat="foundational" tabindex="0" aria-label="Devanagari Character Recognition">
+  <div class="flip-inner">
+    <div class="flip-face flip-front" style="background:
+      radial-gradient(120% 120% at 0% 0%, rgba(15,23,42,.08), transparent 60%),
+      radial-gradient(120% 120% at 100% 100%, rgba(2,6,23,.1), transparent 60%), #fff;">
+      <div style="position:absolute;inset:auto 0 0 0;padding:.85rem 1rem;background:linear-gradient(180deg,transparent,rgba(0,0,0,.55));color:#fff">
+        <h3 style="margin:0 0 .2rem;font-size:1.05rem">Devanagari Recognition</h3>
+        <p class="subtle" style="margin:0;opacity:.9">Computer Vision • Classical ML</p>
+      </div>
+    </div>
+    <div class="flip-face flip-back">
+      <div class="flip-content">
+        <h3>Automated Handwritten Devanagari Character Recognition</h3>
+        <ul>
+          <li>Built a CV pipeline for Devanagari script; compared feature extraction and classifier performance.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <span class="tap">Tap to flip</span>
+  <h3 class="proj-title">Devanagari Character Recognition</h3>
+  <p class="proj-subtle">Computer Vision • Classical ML</p>
+</article>
+
+<article class="proj flip" data-cat="foundational" tabindex="0" aria-label="Privacy-Preserving Cloud Auditing">
+  <div class="flip-inner">
+    <div class="flip-face flip-front" style="background:
+      radial-gradient(120% 120% at 0% 0%, rgba(14,165,233,.12), transparent 60%),
+      radial-gradient(120% 120% at 100% 100%, rgba(99,102,241,.14), transparent 60%), #fff;">
+      <div style="position:absolute;inset:auto 0 0 0;padding:.85rem 1rem;background:linear-gradient(180deg,transparent,rgba(0,0,0,.55));color:#fff">
+        <h3 style="margin:0 0 .2rem;font-size:1.05rem">Cloud Auditing</h3>
+        <p class="subtle" style="margin:0;opacity:.9">Security • Web App</p>
+      </div>
+    </div>
+    <div class="flip-face flip-back">
+      <div class="flip-content">
+        <h3>Privacy-Preserving Cloud Auditing</h3>
+        <ul>
+          <li>Prototyped a web app enabling audit transparency with privacy safeguards for shared cloud data.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <span class="tap">Tap to flip</span>
+  <h3 class="proj-title">Privacy-Preserving Cloud Auditing</h3>
+  <p class="proj-subtle">Security • Web App</p>
+</article>
+
+<article class="proj flip" data-cat="foundational" tabindex="0" aria-label="Explainable AI for Legal Documents">
+  <div class="flip-inner">
+    <div class="flip-face flip-front" style="background:
+      radial-gradient(120% 120% at 0% 0%, rgba(236,72,153,.12), transparent 60%),
+      radial-gradient(120% 120% at 100% 100%, rgba(168,85,247,.14), transparent 60%), #fff;">
+      <div style="position:absolute;inset:auto 0 0 0;padding:.85rem 1rem;background:linear-gradient(180deg,transparent,rgba(0,0,0,.55));color:#fff">
+        <h3 style="margin:0 0 .2rem;font-size:1.05rem">Explainable AI for Legal Docs</h3>
+        <p class="subtle" style="margin:0;opacity:.9">Summarization • UX</p>
+      </div>
+    </div>
+    <div class="flip-face flip-back">
+      <div class="flip-content">
+        <h3>Explainable AI for Legal Documents</h3>
+        <ul>
+          <li>Developed readable policy summaries highlighting rights, obligations, and sensitive data flows.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <span class="tap">Tap to flip</span>
+  <h3 class="proj-title">Explainable AI for Legal Docs</h3>
+  <p class="proj-subtle">Summarization • UX</p>
+</article>
+
+<article class="proj flip" data-cat="foundational" tabindex="0" aria-label="Employee Attrition Prediction">
+  <div class="flip-inner">
+    <div class="flip-face flip-front" style="background:
+      radial-gradient(120% 120% at 0% 0%, rgba(34,197,94,.12), transparent 60%),
+      radial-gradient(120% 120% at 100% 100%, rgba(16,185,129,.14), transparent 60%), #fff;">
+      <div style="position:absolute;inset:auto 0 0 0;padding:.85rem 1rem;background:linear-gradient(180deg,transparent,rgba(0,0,0,.55));color:#fff">
+        <h3 style="margin:0 0 .2rem;font-size:1.05rem">Employee Attrition</h3>
+        <p class="subtle" style="margin:0;opacity:.9">Predictive Modeling</p>
+      </div>
+    </div>
+    <div class="flip-face flip-back">
+      <div class="flip-content">
+        <h3>Employee Attrition Prediction</h3>
+        <ul>
+          <li>Trained models to identify attrition risk & drivers; delivered interpretable insights for HR decisions.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <span class="tap">Tap to flip</span>
+  <h3 class="proj-title">Employee Attrition Prediction</h3>
+  <p class="proj-subtle">Predictive Modeling</p>
+</article>
+
+<article class="proj flip" data-cat="foundational" tabindex="0" aria-label="Lockdown & Mental Health Survey">
+  <div class="flip-inner">
+    <div class="flip-face flip-front" style="background:
+      radial-gradient(120% 120% at 0% 0%, rgba(99,102,241,.12), transparent 60%),
+      radial-gradient(120% 120% at 100% 100%, rgba(14,165,233,.14), transparent 60%), #fff;">
+      <div style="position:absolute;inset:auto 0 0 0;padding:.85rem 1rem;background:linear-gradient(180deg,transparent,rgba(0,0,0,.55));color:#fff">
+        <h3 style="margin:0 0 .2rem;font-size:1.05rem">Lockdown & Mental Health</h3>
+        <p class="subtle" style="margin:0;opacity:.9">Survey • Storytelling</p>
+      </div>
+    </div>
+    <div class="flip-face flip-back">
+      <div class="flip-content">
+        <h3>Lockdown & Mental Health Survey</h3>
+        <ul>
+          <li>Ran a global survey; built visual narratives to surface stressors and coping patterns.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <span class="tap">Tap to flip</span>
+  <h3 class="proj-title">Lockdown & Mental Health</h3>
+  <p class="proj-subtle">Survey • Storytelling</p>
+</article>
+    </div>
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <p>© 2025 Shikha Soneji. All Rights Reserved.</p>
   </footer>
+
+  <!-- Tiny JS for tap/keyboard flip (same pattern you used before) -->
+  <script>
+    // Category filtering
+    const filterBtns = document.querySelectorAll('.pf-btn');
+    const cards = document.querySelectorAll('.proj[data-cat]');
+  
+    function setActive(btn){
+      filterBtns.forEach(b=>{
+        const isActive = b === btn;
+        b.classList.toggle('pf-active', isActive);
+        // inline styles to match your current look
+        b.style.background = isActive ? '#0ea5e9' : '#fff';
+        b.style.color = isActive ? '#fff' : '#0f172a';
+      });
+    }
+  
+    function applyFilter(cat){
+      cards.forEach(card=>{
+        const match = (cat === 'all') || (card.dataset.cat === cat);
+        card.classList.toggle('is-hidden', !match);
+      });
+    }
+  
+    filterBtns.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        setActive(btn);
+        applyFilter(btn.dataset.filter);
+      });
+    });
+  
+    // init: All
+    applyFilter('all');
+  </script>
 </body>
 </html>

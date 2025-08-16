@@ -22,6 +22,26 @@
     --ring: rgba(56,189,248,.3);
   }
   
+  /* Magical background for News & Writing sections with mint green */
+#news, #writing {
+  background: linear-gradient(135deg, 
+    #f9e2ff,   /* soft pink/lilac */
+    #d7eaff,   /* light blue */
+    #c8facc,   /* mint green */
+    #fff6d9    /* warm cream */
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+  padding: 4rem 2rem;
+  border-radius: 20px;
+}
+
+/* Smooth shifting animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 
   .grid{
@@ -281,3 +301,224 @@
     gap: clamp(2rem, 3vw, 3rem);
   }
   .intro .left{ display:flex; justify-content:center; }
+
+
+  /* Flip card layout */
+.proj-grid{
+  display:grid;
+  grid-template-columns: repeat(12, minmax(0,1fr));
+  gap: 1rem;
+}
+.proj{
+  grid-column: span 6;                 /* 2-up; change to 4 for 3-up */
+  background: transparent;             /* front/back handle visuals */
+  border: none;
+  padding: 0;
+  box-shadow: none;
+}
+@media (max-width: 900px){ .proj{ grid-column: span 12; } }
+
+/* 3D flip core */
+.flip{ perspective: 1400px; outline: none; }
+.flip-inner{
+  position: relative;
+  width: 100%;
+  height: 340px;                       /* card height */
+  transform-style: preserve-3d;
+  transition: transform .6s ease;
+  border-radius: 16px;
+}
+.flip:hover .flip-inner,
+.flip:focus .flip-inner,
+.flip.is-flipped .flip-inner{          /* state for touch/keyboard */
+  transform: rotateY(180deg);
+}
+
+/* Faces */
+.flip-face{
+  position: absolute; inset: 0;
+  border-radius: 16px; overflow: hidden;
+  backface-visibility: hidden;
+  box-shadow: 0 12px 28px rgba(0,0,0,.10);
+  border: 1px solid rgba(0,0,0,.08);
+}
+
+/* Front = image with footer title */
+.flip-front img{
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.card-footer{
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: .8rem 1rem;
+  background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.55));
+  color: #fff;
+}
+.card-footer h3{ margin: 0 0 .2rem; font-size: 1.05rem; }
+.card-footer .subtle{ margin: 0; opacity: .85; color: #e5e7eb; }
+
+/* Back = details */
+.flip-back{
+  transform: rotateY(180deg);
+  background: var(--card);
+  display: flex; align-items: center; justify-content: center;
+}
+.flip-content{ padding: 1rem 1.1rem; color: var(--text); width: 100%; }
+.flip-content h3{ margin: .2rem 0 .4rem; }
+.flip-content ul{ padding-left: 1.1rem; margin: .2rem 0 0; }
+.flip-content .link{ color: var(--accent); font-weight: 700; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .flip-inner{ transition: none; }
+  .flip:hover .flip-inner,
+  .flip:focus .flip-inner{ transform: none; }
+  /* Show front + a summary-only back below for accessibility if needed */
+}
+
+/* Nice hover lift */
+.proj.flip:hover{ transform: translateY(-3px); transition: transform .2s ease; }
+
+/* Collapsible blocks for Abstract/BibTeX */
+.disclosure{
+  margin: .4rem 0 .6rem;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 10px;
+  background: var(--card);
+  overflow: hidden;
+}
+
+/* Style the clickable header */
+.disclosure > summary{
+  list-style: none;           /* removes default triangle (we add our own) */
+  cursor: pointer;
+  padding: .55rem .8rem;
+  font-weight: 600;
+  color: var(--text);
+  position: relative;
+  outline: none;
+}
+.disclosure > summary::-webkit-details-marker{ display:none; }
+.disclosure > summary::after{
+  content: "▾";
+  position: absolute; right: .8rem; top: 50%; transform: translateY(-50%);
+  opacity: .7;
+}
+.disclosure[open] > summary::after{ transform: translateY(-50%) rotate(180deg); }
+
+/* Inner content */
+.pub-abstract,
+.bibtex{
+  margin: 0;
+  padding: .6rem .8rem .8rem;
+  color: var(--subtle-text, #4b5563);
+  font-size: .95rem;
+  line-height: 1.5;
+}
+
+/* Optional: subtle open/close animation */
+.disclosure[open]{
+  animation: discFade .16s ease-out;
+}
+@keyframes discFade{
+  from{ opacity:.6; transform: translateY(-2px); }
+  to{   opacity:1;  transform: translateY(0); }
+}
+
+/* Make the details blocks align with your chips/buttons visually */
+.pub-actions + .disclosure{ margin-top: .4rem; }
+
+
+/* ---------- Color system ---------- */
+:root {
+  --bg: #f7f9fc;
+  --bg-2: #eef2f7;
+  --text: #0f172a;
+  --card: #ffffff;
+  --accent: #2563eb;
+  --accent-2: #8b5cf6;
+  --chip-bg: color-mix(in srgb, var(--accent) 12%, #fff);
+}
+
+/* Palettes (we’ll toggle data-theme on <body>) */
+body[data-theme="ocean"]  { --accent:#22d3ee; --accent-2:#2563eb; --bg-2:#e6f7ff; }
+body[data-theme="sunset"] { --accent:#f97316; --accent-2:#ef4444; --bg-2:#fff0e6; }
+body[data-theme="orchid"] { --accent:#8b5cf6; --accent-2:#ec4899; --bg-2:#f4e9ff; }
+body[data-theme="sprout"] { --accent:#10b981; --accent-2:#4ade80; --bg-2:#eafff3; }
+
+/* Section backdrop — gentle animated gradient */
+.section.publications{
+  background:
+    radial-gradient(1200px 380px at 15% -10%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 60%),
+    radial-gradient(900px 320px at 110% 110%, color-mix(in srgb, var(--accent-2) 18%, transparent), transparent 60%),
+    var(--bg-2);
+  animation: bgFloat 18s ease-in-out infinite alternate;
+  border: 1px solid rgba(0,0,0,.04);
+  border-radius: 16px;
+  padding: clamp(1rem, 2vw, 1.5rem);
+}
+@media (prefers-reduced-motion: reduce){ .section.publications{ animation:none; } }
+
+@keyframes bgFloat {
+  from { background-position: 0% 0%, 100% 100%, 0 0; }
+  to   { background-position: 10% 5%, 90% 95%, 0 0; }
+}
+
+/* Header toolbar */
+.pub-toolbar{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:1rem; margin-bottom: .75rem;
+}
+
+/* Publication card hover glow */
+.pub-item{
+  background: var(--card);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius:14px;
+  padding: 1rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,.05);
+  transition: box-shadow .25s ease, border-color .25s ease, transform .25s ease;
+}
+.pub-item:hover{
+  border-color: color-mix(in srgb, var(--accent) 35%, #fff);
+  box-shadow: 0 16px 36px color-mix(in srgb, var(--accent) 22%, rgba(0,0,0,.06));
+  transform: translateY(-2px);
+}
+
+/* Details (Abstract/BibTeX) */
+.disclosure{
+  border-radius:12px; overflow:hidden;
+  border:1px solid rgba(0,0,0,.06);
+  background: linear-gradient(180deg,#fff, color-mix(in srgb, var(--accent) 4%, #fff));
+}
+.disclosure > summary{
+  padding:.6rem .8rem; cursor:pointer; font-weight:600;
+}
+.disclosure > summary:hover{
+  background: color-mix(in srgb, var(--accent) 10%, #fff);
+}
+
+/* Chips with lively hover */
+.chip{
+  display:inline-block; padding:.35rem .7rem; border-radius:999px;
+  background: var(--chip-bg); color:#0f172a; font-weight:600; margin:.25rem .35rem 0 0;
+  transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+.chip:hover{
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color:#fff; box-shadow: 0 6px 18px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+/* Buttons tint to theme */
+.btn-small.primary{
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border-color: transparent; color:#fff;
+}
+.btn-small:hover{ box-shadow: 0 6px 16px color-mix(in srgb, var(--accent) 28%, transparent); }
+
+/* “Copy BibTeX” success */
+.btn-small.copy-bib.copied{ background: var(--accent); color:#fff; }
+
+/* hide cards when filtering */
+.is-hidden{ display:none !important; }

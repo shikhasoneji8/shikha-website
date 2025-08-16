@@ -38,6 +38,8 @@
         <li><a href="index.html#news">News</a></li>
         <li><a href="index.html#writing">Writing</a></li>
         <li><a href="publications.html" class="active">Publications</a></li>
+        <li><a href="work.html">Work Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
       </ul>
     </nav>
   </header>
@@ -46,49 +48,88 @@
   <main>
     <section class="section publications">
       <h1 style="margin-top:0">Publications</h1>
-
+      <div class="pub-toolbar">
+        <h1 style="margin:0">Publications</h1>
+        <button id="themeShuffle" class="btn-small">Shuffle theme ✨</button>
+      </div>
       <ul class="pub-list">
         <li class="pub-item">
-          <h3 class="pub-title">How to Measure Human-AI Prediction Accuracy in Explainable AI Systems</h3>
-          <p class="pub-authors">Koujalgi, S., Anderson, A., Adenuga, I., <strong>Soneji, S.</strong>, Dikkala, R., Nader, T. G., et&nbsp;al.</p>
-          <p class="pub-venue"><i>arXiv preprint</i>, arXiv:2409.00069, 2024.</p>
+          <h3 class="pub-title">Signed, Sealed,... Confused: Exploring the Understandability and Severity of Policy Documents</h3>
+          <p class="pub-authors"><strong>Soneji, S.</strong>, Panda, S., Neve, S., &amp; Dodge, J.</p>
+          <p class="pub-venue"><i>arXiv preprint</i>, arXiv:2502.08743, 2025.</p>
+        
+          <!-- Collapsible abstract -->
+          <details class="disclosure">
+            <summary>Abstract</summary>
+            <p class="pub-abstract">
+              In general, Terms of Service (ToS) and other policy documents are verbose and full of legal jargon, which poses challenges for users to understand. To improve user accessibility and transparency, the "Terms of Service; Didn't Read" (ToS;DR) project condenses intricate legal terminology into summaries and overall grades for the website's policy documents. Nevertheless, uncertainties remain about whether users could truly grasp the implications of simplified presentations. We conducted an online survey to assess the perceived understandability and severity of randomly chosen cases from the ToS;DR taxonomy. Preliminary results indicate that, although most users report understanding the cases, they find a bias towards service providers in about two-thirds of the cases. The findings of our study emphasize the necessity of prioritizing user-centric policy formulation. This study has the potential to reveal the extent of information imbalance in digital services and promote more well-informed user consent.
+            </p>
+          </details>
+        
           <div class="pub-actions">
-            <a class="btn-small primary" href="https://arxiv.org/abs/2409.00069" target="_blank" rel="noopener">View on arXiv</a>
-            <span class="chip">Explainable AI</span>
-            <span class="chip">Human-AI collaboration</span>
+            <a class="btn-small primary" href="https://arxiv.org/abs/2502.08743" target="_blank" rel="noopener">View on arXiv</a>
+            <span class="chip">Policy</span>
+            <span class="chip">Usability</span>
+            <span class="chip">ToS;DR</span>
+            <span class="chip">User Study</span>
+            <span class="chip">Privacy</span>
           </div>
-          <pre class="bibtex">@article{koujalgi2024measure,
-  title={How to Measure Human-AI Prediction Accuracy in Explainable AI Systems},
-  author={Koujalgi, S. and Anderson, A. and Adenuga, I. and Soneji, S. and Dikkala, R. and Nader, T. G. and others},
-  journal={arXiv preprint arXiv:2409.00069},
-  year={2024}
-}</pre>
+          </details>
         </li>
 
         <li class="pub-item">
           <h3 class="pub-title">Demystifying Legalese: An Automated Approach for Summarizing and Analyzing Overlaps in Privacy Policies and Terms of Service</h3>
           <p class="pub-authors"><strong>Soneji, S.</strong>, Hoesing, M., Koujalgi, S., &amp; Dodge, J.</p>
           <p class="pub-venue"><i>arXiv preprint</i>, arXiv:2404.13087, 2024.</p>
+        
+          <!-- Collapsible abstract -->
+          <details class="disclosure">
+            <summary>Abstract</summary>
+            <p class="pub-abstract">
+              The complexities of legalese in terms and policy documents can bind individuals to contracts they do not fully
+              comprehend, potentially leading to uninformed data sharing. This work addresses that challenge by developing language
+              models capable of producing automated, accessible summaries and scores for such documents, improving user
+              understanding and enabling informed decision-making.  
+              We compared transformer-based and conventional models using our dataset, with RoBERTa achieving the highest
+              performance at an F1-score of 0.74. Using this best-performing model, we detected redundancies and potential
+              guideline violations by identifying overlaps in GDPR-required documents, emphasizing the need for stronger GDPR
+              compliance.
+            </p>
+          </details>
+        
           <div class="pub-actions">
             <a class="btn-small primary" href="https://arxiv.org/abs/2404.13087" target="_blank" rel="noopener">View on arXiv</a>
             <span class="chip">Privacy</span>
             <span class="chip">NLP</span>
             <span class="chip">Policy Analysis</span>
           </div>
-          <pre class="bibtex">@article{soneji2024demystifying,
-  title={Demystifying Legalese: An Automated Approach for Summarizing and Analyzing Overlaps in Privacy Policies and Terms of Service},
-  author={Soneji, S. and Hoesing, M. and Koujalgi, S. and Dodge, J.},
-  journal={arXiv preprint arXiv:2404.13087},
-  year={2024}
-}</pre>
         </li>
 
         <li class="pub-item">
           <h3 class="pub-title">Revolutionizing Digital Consent: An Automated Approach to Simplifying and Deciphering Privacy Policies for Empowered User Understanding</h3>
           <p class="pub-authors"><strong>Soneji, S.</strong></p>
           <p class="pub-venue"><i>29th International Conference on Intelligent User Interfaces</i>, 2024.</p>
+        
+          <!-- Collapsible abstract -->
+          <details class="disclosure">
+            <summary>Abstract</summary>
+            <p class="pub-abstract">
+              Terms of service (ToS) documents provide guidelines that users must follow to utilize a company’s services. Although
+              posting ToS is not always legally required, certain regulations mandate it in specific cases. Users are expected to
+              read and understand these terms before using a service — yet the familiar checkbox of “Yes, I have read and agree”
+              is often called the “biggest lie on the internet.” ToS documents are typically lengthy and complex, making them
+              difficult for users to read. Research shows participants spent an average of 51 seconds reading a ToS that should
+              take 15–17 minutes to read thoroughly, with information overload being a key factor.  
+              This work uses Natural Language Processing (NLP), Machine Learning (ML), and Explainable AI (XAI) to create a browser
+              extension that automatically simplifies and categorizes complex documents like privacy policies, producing summarized
+              and annotated versions for faster comprehension. By bridging the knowledge gap, this technology empowers users to
+              make informed decisions, improves digital consent transparency, builds trust, and ensures that terms are truly
+              understood and agreeable.
+            </p>
+          </details>
+        
           <div class="pub-actions">
-            <a class="btn-small" href="#" target="_blank" rel="noopener">Paper / Slides</a>
+            <a class="btn-small" href="https://dl.acm.org/doi/abs/10.1145/3640544.3645246" target="_blank" rel="noopener">Paper / Slides</a>
             <span class="chip">Consent</span>
             <span class="chip">Summarization</span>
           </div>
@@ -98,8 +139,24 @@
           <h3 class="pub-title">Systems Engineers’ Effectiveness in an Organization: Text and Visual Analytics Approach</h3>
           <p class="pub-authors">Zavala, A., <strong>Soneji, S.</strong>, Kothari, S., Ramirez-Marquez, J. E., Tao, H. Y. S., &amp; Hutchison, N.</p>
           <p class="pub-venue"><i>IEEE Systems Journal</i>, 14(4), 5049–5060, 2020.</p>
+        
+          <!-- Collapsible abstract -->
+          <details class="disclosure">
+            <summary>Abstract</summary>
+            <p class="pub-abstract">
+              The Helix project is a multiyear longitudinal research study focused on understanding what makes systems engineers
+              effective. Data were gathered through interviews, site visits, and surveys with individuals performing systems
+              engineering (SE) work, supervising systems engineers, using SE products, or otherwise knowledgeable about SE.
+              Responses were documented and analyzed using text mining techniques such as topic modeling and word similarity.
+              The results were interpreted through visualizations generated for three scenarios: full corpus, by organization type,
+              and by domain. These visuals reveal the common language among systems engineers within topics and the relationships
+              between words in the three scenarios. The article also offers insights into the factors that enable systems engineers
+              to be proficient and effective.
+            </p>
+          </details>
+        
           <div class="pub-actions">
-            <a class="btn-small" href="#" target="_blank" rel="noopener">Publisher</a>
+            <a class="btn-small" href="https://ieeexplore.ieee.org/abstract/document/9001119" target="_blank" rel="noopener">Publisher</a>
             <span class="chip">Text Mining</span>
             <span class="chip">Analytics</span>
           </div>
@@ -109,19 +166,83 @@
           <h3 class="pub-title">Text analysis approach to systems engineers’ effectiveness in an organization</h3>
           <p class="pub-authors"><strong>Soneji, S.</strong>, Zavala, A., Tao, H. Y. S., Burke, P., Kothari, S., Luna, S., Hutchison, N., &amp; Ramirez-Marquez, J.</p>
           <p class="pub-venue"><i>2019 IEEE International Systems Conference (SysCon)</i>, 1–8.</p>
+        
+          <!-- Collapsible abstract -->
+          <details class="disclosure">
+            <summary>Abstract</summary>
+            <p class="pub-abstract">
+              The Helix project of the Systems Engineering Research Center (SERC) seeks solutions to help organizations
+              increase the effectiveness of their systems engineering workforce by gathering data through interviews, site visits,
+              and surveys with systems engineers and their management peers. The study documents and analyzes these
+              responses, using text analysis and visualization techniques to transform large volumes of qualitative data into
+              accessible, interpretable formats. This enables organizations to visually explore trends and insights, guiding
+              targeted changes to improve systems engineering effectiveness.
+            </p>
+          </details>
+        
           <div class="pub-actions">
-            <a class="btn-small" href="#" target="_blank" rel="noopener">IEEE Xplore</a>
+            <a class="btn-small" href="https://ieeexplore.ieee.org/abstract/document/8836829" target="_blank" rel="noopener">IEEE Xplore</a>
             <span class="chip">NLP</span>
             <span class="chip">Org Effectiveness</span>
           </div>
         </li>
 
+
+        <li class="pub-item">
+          <h3 class="pub-title">How to Measure Human-AI Prediction Accuracy in Explainable AI Systems</h3>
+          <p class="pub-authors">Koujalgi, S., Anderson, A., Adenuga, I., <strong>Soneji, S.</strong>, Dikkala, R., Nader, T. G., et&nbsp;al.</p>
+          <p class="pub-venue"><i>arXiv preprint</i>, arXiv:2409.00069, 2024.</p>
+        
+          <!-- NEW: collapsible abstract -->
+          <details class="disclosure">
+            <summary>Abstract</summary>
+            <p class="pub-abstract">
+            Assessing an AI system's behavior-particularly in Explainable AI Systems-is sometimes done empirically, by measuring people's abilities to predict the agent's next move-but how to perform such measurements? In empirical studies with humans, an obvious approach is to frame the task as binary (i.e., prediction is either right or wrong), but this does not scale. As output spaces increase, so do floor effects, because the ratio of right answers to wrong answers quickly becomes very small. The crux of the problem is that the binary framing is failing to capture the nuances of the different degrees of "wrongness." To address this, we begin by proposing three mathematical bases upon which to measure "partial wrongness." We then uses these bases to perform two analyses on sequential decision-making domains: the first is an in-lab study with 86 participants on a size-36 action space; the second is a re-analysis of a prior study on a size-4 action space. Other researchers adopting our operationalization of the prediction task and analysis methodology will improve the rigor of user studies conducted with that task, which is particularly important when the domain features a large output space.
+            </p>
+          </details>
+        
+          <div class="pub-actions">
+            <a class="btn-small primary" href="https://arxiv.org/abs/2409.00069" target="_blank" rel="noopener">View on arXiv</a>
+            <span class="chip">Explainable AI</span>
+            <span class="chip">Human-AI collaboration</span>
+          </div>
+        
+          <!-- NEW: collapsible BibTeX -->
+          <details class="disclosure">
+            <summary>BibTeX</summary>
+            <pre class="bibtex">@article{koujalgi2024measure,
+          title={How to Measure Human-AI Prediction Accuracy in Explainable AI Systems},
+          author={Koujalgi, S. and Anderson, A. and Adenuga, I. and Soneji, S. and Dikkala, R. and Nader, T. G. and others},
+          journal={arXiv preprint arXiv:2409.00069},
+          year={2024}
+        }</pre>
+          </details>
+        </li>
+
+
         <li class="pub-item">
           <h3 class="pub-title">Helix: Developing an understanding of organizational systems engineering effectiveness</h3>
           <p class="pub-authors">Hutchinson, N. A., Verma, D., Burke, P., Giffin, R., Luna, S., Makwana, D., Kothari, S., <strong>Soneji, S.</strong>, et&nbsp;al.</p>
           <p class="pub-venue"><i>INCOSE International Symposium</i>, 29(1), 652–668, 2019.</p>
+        
+          <!-- Collapsible abstract -->
+          <details class="disclosure">
+            <summary>Abstract</summary>
+            <p class="pub-abstract">
+              There is significant interest in the DoD, as well as in Congress, in ensuring that DoD can characterize and
+              manage its systems engineering (SE) workforce. Establishing a baseline understanding of the SE workforce is essential
+              for measuring the impact of SERC and other DoD human capital initiatives, including recruitment and retention
+              programs. This research aims to answer one primary research question—how organizations can improve the effectiveness
+              of their SE workforce—supported by three sub-questions focused on impact, critical enabling factors, and shifts
+              needed for different SE approaches.  
+              In 2018, the Helix team engaged seven new organizations and added over 100 interviewees to the dataset, bringing
+              total participation to 464 individuals and 29 organizations, supplemented by consultant interviews. Results inform
+              both DoD policy and SERC’s human capital research program.
+            </p>
+          </details>
+        
           <div class="pub-actions">
-            <a class="btn-small" href="#" target="_blank" rel="noopener">Publisher</a>
+            <a class="btn-small" href="https://apps.dtic.mil/sti/citations/AD1068232" target="_blank" rel="noopener">Publisher</a>
             <span class="chip">Systems Engineering</span>
           </div>
         </li>
@@ -130,8 +251,24 @@
           <h3 class="pub-title">Evolution of the Helix Project: From Investigating the Effectiveness of Individual Systems Engineers to Systems Engineering Organizations</h3>
           <p class="pub-authors">Hutchison, N., Tao, H. Y. S., Burke, P., Luna, S., Zavala, A., Kothari, S., <strong>Soneji, S.</strong>, et&nbsp;al.</p>
           <p class="pub-venue"><i>Stevens Institute of Technology</i>, 2019.</p>
+        
+          <!-- Collapsible abstract -->
+          <details class="disclosure">
+            <summary>Abstract</summary>
+            <p class="pub-abstract">
+              The U.S. Department of Defense (DoD) and the Defense Industrial Base (DIB) have faced persistent systems engineering
+              challenges in recent years. Launched in 2012, the Helix project is a multi-year longitudinal research study focused on
+              understanding what makes systems engineers effective. Previous Helix work centered on individual systems engineers,
+              forming a critical foundation for the current research.  
+              In 2018, the scope expanded beyond workforce focus to include how organizations can strengthen systems engineering as
+              a discipline. This includes identifying organizational characteristics that enhance workforce effectiveness and
+              enable better SE practices. This paper updates research findings and highlights the shift toward studying
+              organization-level enablers of systems engineering success.
+            </p>
+          </details>
+        
           <div class="pub-actions">
-            <a class="btn-small" href="#" target="_blank" rel="noopener">Report</a>
+            <a class="btn-small" href="https://d1wqtxts1xzle7.cloudfront.net/116924122/j.2334-5837.2019.00626.x20240720-1-4sf5ih-libre.pdf" target="_blank" rel="noopener">Report</a>
           </div>
         </li>
 
@@ -139,8 +276,21 @@
           <h3 class="pub-title">Key Techniques used for Security in the Cloud</h3>
           <p class="pub-authors">Kotak, K. C., Wadhwani, R., <strong>Soneji, S.</strong>, &amp; Sahu, S.</p>
           <p class="pub-venue"><i>IJSRD – International Journal for Scientific Research & Development</i>, 5(4), 2017.</p>
+        
+          <!-- Collapsible abstract -->
+          <details class="disclosure">
+            <summary>Abstract</summary>
+            <p class="pub-abstract">
+              Over recent years, Cloud Computing has advanced rapidly, with more companies moving workloads to the cloud. This 
+              growth has intensified the need to protect vast volumes of user data stored and processed on centralized cloud 
+              platforms. Core challenges include securing, protecting, and processing user-owned data while maintaining its 
+              integrity. This paper reviews and evaluates techniques applied in cloud computing environments to ensure data 
+              security and integrity for individual users.
+            </p>
+          </details>
+        
           <div class="pub-actions">
-            <a class="btn-small" href="#" target="_blank" rel="noopener">Journal</a>
+            <a class="btn-small" href="https://www.ijsrd.com/Article.php?manuscript=IJSRDV5I41514" target="_blank" rel="noopener">Journal</a>
             <span class="chip">Cloud Security</span>
           </div>
         </li>
@@ -149,8 +299,21 @@
           <h3 class="pub-title">Survey on Privacy Preserving Cloud Auditing for Shared Data</h3>
           <p class="pub-authors">Kotak, K. C., Wadhwani, R., <strong>Soneji, S.</strong>, &amp; Sahu, S.</p>
           <p class="pub-venue"><i>International Journal of Engineering Sciences Research Technology</i>, 6(2), 2017.</p>
+        
+          <!-- Collapsible abstract -->
+          <details class="disclosure">
+            <summary>Abstract</summary>
+            <p class="pub-abstract">
+              Cloud computing enables both storage and sharing of data at scale, but raises critical concerns over 
+              data integrity and security during sharing. Verifying integrity and consistency of stored cloud data 
+              is challenging for both the user and the cloud server. Public Auditing methods address this by allowing 
+              a trusted Third Party Auditor (TPA) to verify the data. This paper surveys three landmark methodologies 
+              in privacy-preserving cloud auditing for shared data, reviewing their mechanisms and comparative strengths.
+            </p>
+          </details>
+        
           <div class="pub-actions">
-            <a class="btn-small" href="#" target="_blank" rel="noopener">Journal</a>
+            <a class="btn-small" href="https://www.academia.edu/31168456/SURVEY_ON_PRIVACY_PRESERVING_CLOUD_AUDITING_FOR_SHARED_DATA" target="_blank" rel="noopener">Journal</a>
             <span class="chip">Cloud</span>
             <span class="chip">Privacy</span>
           </div>
@@ -165,3 +328,52 @@
   </footer>
 </body>
 </html>
+
+
+<script>
+  (() => {
+    const PALETTES = ["ocean","sunset","orchid","sprout"];
+  
+    // Pick by hour (morning→sprout, midday→ocean, evening→sunset, night→orchid)
+    function timeBasedTheme(){
+      const h = new Date().getHours();
+      if (h >= 6 && h < 12) return "sprout";
+      if (h >= 12 && h < 18) return "ocean";
+      if (h >= 18 && h < 22) return "sunset";
+      return "orchid";
+    }
+  
+    // Set theme on body
+    function setTheme(name){
+      document.body.setAttribute("data-theme", name);
+      try { localStorage.setItem("pubsTheme", name); } catch {}
+    }
+  
+    // Init
+    const saved = (() => { try { return localStorage.getItem("pubsTheme"); } catch { return null } })();
+    setTheme(saved || timeBasedTheme());
+  
+    // Shuffle button
+    const btn = document.getElementById('themeShuffle');
+    if (btn){
+      btn.addEventListener('click', () => {
+        const cur = document.body.getAttribute('data-theme') || PALETTES[0];
+        const idx = (PALETTES.indexOf(cur) + 1) % PALETTES.length;
+        setTheme(PALETTES[idx]);
+        btn.classList.add('copied');
+        btn.textContent = `Theme: ${PALETTES[idx]} ✨`;
+        setTimeout(() => (btn.textContent = 'Shuffle theme ✨', btn.classList.remove('copied')), 1200);
+      });
+    }
+  
+    // Optional: gentle auto-rotate every 45s (respects reduced-motion)
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce){
+      setInterval(() => {
+        const cur = document.body.getAttribute('data-theme') || PALETTES[0];
+        const idx = (PALETTES.indexOf(cur) + 1) % PALETTES.length;
+        setTheme(PALETTES[idx]);
+      }, 45000);
+    }
+  })();
+  </script>
